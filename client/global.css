@@ -79,7 +79,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 200 100% 60%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -96,7 +96,7 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 200 100% 60%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -105,6 +105,26 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Dark mode Snowy Store colors */
+    --snowy-50: 200 20% 10%;
+    --snowy-100: 200 25% 15%;
+    --snowy-200: 200 30% 20%;
+    --snowy-300: 200 40% 30%;
+    --snowy-400: 200 50% 40%;
+    --snowy-500: 200 80% 50%;
+    --snowy-600: 200 90% 60%;
+    --snowy-700: 200 95% 70%;
+    --snowy-800: 200 98% 80%;
+    --snowy-900: 200 100% 90%;
+
+    /* Dark mode ice colors */
+    --ice-50: 180 20% 12%;
+    --ice-100: 180 25% 18%;
+    --ice-200: 180 30% 25%;
+    --ice-300: 180 35% 35%;
+    --ice-400: 180 40% 45%;
+    --ice-500: 180 50% 55%;
   }
 }
 
