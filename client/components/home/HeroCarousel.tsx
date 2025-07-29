@@ -135,10 +135,10 @@ export default function HeroCarousel() {
                     {currentSlideData.cta}
                   </Button>
                   
-                  <Button 
+                  <Button
                     variant="outline"
                     size="lg"
-                    className="border-2 border-white/50 text-white hover:bg-white/20 hover:border-white/70 font-semibold px-8 py-4 rounded-xl backdrop-blur-sm text-lg"
+                    className="border-2 border-white bg-white/10 text-white hover:bg-white/25 hover:border-white font-semibold px-8 py-4 rounded-xl backdrop-blur-md text-lg shadow-lg transition-all duration-300"
                   >
                     <Star className="w-5 h-5 mr-2" />
                     Lihat Promo
