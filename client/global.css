@@ -9,7 +9,7 @@
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -18,7 +18,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 200 100% 50%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -27,7 +27,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 220 60% 96%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,25 +35,38 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 200 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Snowy Store Brand Colors */
+    --snowy-50: 210 100% 98%;
+    --snowy-100: 210 100% 95%;
+    --snowy-200: 210 100% 90%;
+    --snowy-300: 210 100% 80%;
+    --snowy-400: 210 100% 70%;
+    --snowy-500: 200 100% 50%;
+    --snowy-600: 200 100% 40%;
+    --snowy-700: 200 100% 30%;
+    --snowy-800: 200 80% 20%;
+    --snowy-900: 200 60% 10%;
+
+    /* Ice Colors */
+    --ice-50: 180 100% 97%;
+    --ice-100: 180 100% 94%;
+    --ice-200: 180 50% 88%;
+    --ice-300: 180 40% 75%;
+    --ice-400: 180 30% 60%;
+    --ice-500: 180 25% 45%;
   }
 
   .dark {
