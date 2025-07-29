@@ -9,64 +9,72 @@
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 220 100% 99%;
+    --foreground: 220 30% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 30% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 30% 15%;
 
-    --primary: 200 100% 50%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 210 100% 55%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 50% 96%;
+    --secondary-foreground: 220 30% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 50% 96%;
+    --muted-foreground: 220 20% 50%;
 
-    --accent: 220 60% 96%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 200 80% 95%;
+    --accent-foreground: 220 30% 20%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 200 100% 50%;
+    --border: 210 40% 88%;
+    --input: 210 40% 92%;
+    --ring: 210 100% 55%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 220 100% 99%;
+    --sidebar-foreground: 220 30% 25%;
+    --sidebar-primary: 210 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 50% 96%;
+    --sidebar-accent-foreground: 220 30% 20%;
+    --sidebar-border: 210 40% 88%;
+    --sidebar-ring: 210 100% 55%;
 
-    /* Snowy Store Brand Colors */
-    --snowy-50: 210 100% 98%;
-    --snowy-100: 210 100% 95%;
-    --snowy-200: 210 100% 90%;
-    --snowy-300: 210 100% 80%;
-    --snowy-400: 210 100% 70%;
-    --snowy-500: 200 100% 50%;
-    --snowy-600: 200 100% 40%;
-    --snowy-700: 200 100% 30%;
-    --snowy-800: 200 80% 20%;
-    --snowy-900: 200 60% 10%;
+    /* Premium Snowy Store Brand Colors */
+    --snowy-50: 220 100% 98%;
+    --snowy-100: 215 100% 96%;
+    --snowy-200: 210 100% 92%;
+    --snowy-300: 210 90% 85%;
+    --snowy-400: 210 80% 75%;
+    --snowy-500: 210 100% 55%;
+    --snowy-600: 210 100% 45%;
+    --snowy-700: 210 100% 35%;
+    --snowy-800: 210 80% 25%;
+    --snowy-900: 210 60% 15%;
 
-    /* Ice Colors */
-    --ice-50: 180 100% 97%;
-    --ice-100: 180 100% 94%;
-    --ice-200: 180 50% 88%;
-    --ice-300: 180 40% 75%;
-    --ice-400: 180 30% 60%;
-    --ice-500: 180 25% 45%;
+    /* Premium Ice Colors with Purple Gradients */
+    --ice-50: 200 100% 98%;
+    --ice-100: 195 100% 95%;
+    --ice-200: 190 80% 90%;
+    --ice-300: 185 70% 80%;
+    --ice-400: 180 60% 70%;
+    --ice-500: 175 50% 60%;
+
+    /* Purple gradient colors */
+    --purple-50: 260 100% 98%;
+    --purple-100: 255 100% 95%;
+    --purple-200: 250 80% 90%;
+    --purple-300: 245 70% 80%;
+    --purple-400: 240 60% 70%;
+    --purple-500: 235 70% 60%;
   }
 
 
