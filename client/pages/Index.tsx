@@ -128,26 +128,7 @@ export default function Index() {
             ))}
           </motion.div>
 
-          {/* CTA Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mt-16"
-          >
-            <div className="bg-gradient-to-r from-snowy-50 to-ice-50 dark:from-snowy-900 dark:to-snowy-800 rounded-2xl p-8 lg:p-12 border border-snowy-200/50 dark:border-snowy-700/50">
-              <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
-                Tidak Menemukan Game yang Dicari?
-              </h3>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Hubungi tim support kami untuk menambahkan game favorit kamu ke dalam katalog Snowy Store
-              </p>
-              <button className="bg-gradient-to-r from-snowy-500 to-ice-500 hover:from-snowy-600 hover:to-ice-600 text-white font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                Hubungi Support
-              </button>
-            </div>
-          </motion.div>
+
         </div>
       </section>
     </Layout>
