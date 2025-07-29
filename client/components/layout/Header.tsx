@@ -88,7 +88,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="text-sm font-medium text-foreground/60 hover:text-snowy-600 transition-colors px-2 py-1 rounded-md hover:bg-snowy-50 dark:hover:bg-snowy-900"
+                  className="text-sm font-medium text-foreground/60 hover:text-snowy-600 transition-colors px-2 py-1 rounded-md hover:bg-snowy-50"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
