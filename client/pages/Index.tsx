@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
-import HeroSection from '@/components/home/HeroSection';
+import HeroCarousel from '@/components/home/HeroCarousel';
 import GameCard from '@/components/game/GameCard';
 import { Gamepad2, TrendingUp } from 'lucide-react';
 
@@ -64,8 +64,8 @@ export default function Index() {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <HeroSection />
+      {/* Hero Carousel */}
+      <HeroCarousel />
 
       {/* Games Catalog Section */}
       <section id="games-catalog" className="py-16 lg:py-24">
