@@ -1,15 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Moon, Sun, Menu, X, Snowflake } from 'lucide-react';
+import { Menu, X, Snowflake } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-interface HeaderProps {
-  isDark: boolean;
-  toggleTheme: () => void;
-}
-
-export default function Header({ isDark, toggleTheme }: HeaderProps) {
+export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
