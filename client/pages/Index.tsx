@@ -121,6 +121,7 @@ export default function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                className="h-full" // Ensure full height for consistent card sizing
               >
                 <GameCard {...game} />
               </motion.div>
