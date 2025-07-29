@@ -58,31 +58,11 @@ export default function Header() {
 
           {/* Actions */}
           <div className="flex items-center space-x-2">
-            {/* Theme Toggle */}
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleTheme}
-              className="w-9 h-9 rounded-full hover:bg-snowy-100 dark:hover:bg-snowy-800"
-            >
-              <motion.div
-                initial={false}
-                animate={{ rotate: isDark ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {isDark ? (
-                  <Sun className="h-4 w-4 text-snowy-600" />
-                ) : (
-                  <Moon className="h-4 w-4 text-snowy-600" />
-                )}
-              </motion.div>
-            </Button>
-
             {/* Mobile Menu Toggle */}
             <Button
               variant="ghost"
               size="sm"
-              className="w-9 h-9 rounded-full md:hidden hover:bg-snowy-100 dark:hover:bg-snowy-800"
+              className="w-9 h-9 rounded-full md:hidden hover:bg-snowy-100"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
