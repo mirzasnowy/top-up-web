@@ -65,24 +65,27 @@ export default function HeroCarousel() {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlideData.id}
-            initial={{ scale: 1.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ 
-              duration: 0.8,
-              ease: [0.4, 0, 0.2, 1]
+            initial={{ scale: 1.1, opacity: 0, x: 100 }}
+            animate={{ scale: 1, opacity: 1, x: 0 }}
+            exit={{ scale: 0.9, opacity: 0, x: -100 }}
+            transition={{
+              duration: 1,
+              ease: [0.25, 0.46, 0.45, 0.94]
             }}
             className="absolute inset-0"
           >
-            <img
+            <motion.img
               src={currentSlideData.image}
               alt={currentSlideData.title}
               className="w-full h-full object-cover"
+              initial={{ scale: 1.05 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
             />
             {/* Gradient Overlay */}
             <div className={`absolute inset-0 bg-gradient-to-br ${currentSlideData.gradient}`} />
             {/* Additional semi-transparent overlay for readability */}
-            <div className="absolute inset-0 bg-black/20" />
+            <div className="absolute inset-0 bg-black/30" />
           </motion.div>
         </AnimatePresence>
       </div>
