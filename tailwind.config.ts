@@ -77,6 +77,14 @@ export default {
           400: "hsl(var(--ice-400))",
           500: "hsl(var(--ice-500))",
         },
+        purple: {
+          50: "hsl(var(--purple-50))",
+          100: "hsl(var(--purple-100))",
+          200: "hsl(var(--purple-200))",
+          300: "hsl(var(--purple-300))",
+          400: "hsl(var(--purple-400))",
+          500: "hsl(var(--purple-500))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
