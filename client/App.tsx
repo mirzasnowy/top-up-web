@@ -10,7 +10,13 @@ import Index from "./pages/Index";
 import GameTopUp from "./pages/GameTopUp";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import NotFound from "./pages/NotFound";
-import { MessageCircle, ClipboardCheck, HelpCircle, FileText, Shield } from "lucide-react";
+import {
+  MessageCircle,
+  ClipboardCheck,
+  HelpCircle,
+  FileText,
+  Shield,
+} from "lucide-react";
 
 const queryClient = new QueryClient();
 

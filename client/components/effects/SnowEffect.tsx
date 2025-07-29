@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 interface Snowflake {
   x: number;
@@ -18,7 +18,7 @@ export default function SnowEffect() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const resizeCanvas = () => {
@@ -31,9 +31,12 @@ export default function SnowEffect() {
 
     // Create snowflakes
     const createSnowflakes = () => {
-      const flakeCount = Math.min(100, Math.max(60, Math.floor(window.innerWidth / 15))); // Responsive count
+      const flakeCount = Math.min(
+        100,
+        Math.max(60, Math.floor(window.innerWidth / 15)),
+      ); // Responsive count
       snowflakes.current = [];
-      
+
       for (let i = 0; i < flakeCount; i++) {
         snowflakes.current.push({
           x: Math.random() * canvas.width,
@@ -63,7 +66,7 @@ export default function SnowEffect() {
           flake.y = -10;
           flake.x = Math.random() * canvas.width;
         }
-        
+
         // Keep flakes within horizontal bounds with wrapping
         if (flake.x > canvas.width + 10) {
           flake.x = -10;
@@ -76,7 +79,7 @@ export default function SnowEffect() {
         ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${flake.opacity})`;
         ctx.fill();
-        
+
         // Add subtle glow effect for larger flakes
         if (flake.radius > 2) {
           ctx.beginPath();
@@ -98,14 +101,14 @@ export default function SnowEffect() {
       createSnowflakes();
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Cleanup
     return () => {
       if (animationId.current) {
         cancelAnimationFrame(animationId.current);
       }
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -114,7 +117,7 @@ export default function SnowEffect() {
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-[1]"
       style={{
-        background: 'transparent',
+        background: "transparent",
       }}
     />
   );

@@ -108,15 +108,15 @@ export default {
             height: "0",
           },
         },
-        "float": {
+        float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
         },
-        "glow": {
+        glow: {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.5" },
         },
-        "shimmer": {
+        shimmer: {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(100%)" },
         },
@@ -124,15 +124,19 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "float": "float 6s ease-in-out infinite",
-        "glow": "glow 2s ease-in-out infinite",
-        "shimmer": "shimmer 2s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
+        glow: "glow 2s ease-in-out infinite",
+        shimmer: "shimmer 2s ease-in-out infinite",
       },
       backgroundImage: {
-        'snowy-gradient': 'linear-gradient(135deg, hsl(var(--snowy-50)) 0%, hsl(var(--ice-100)) 40%, hsl(var(--purple-100)) 100%)',
-        'premium-gradient': 'linear-gradient(145deg, hsl(var(--snowy-100)) 0%, hsl(var(--ice-50)) 50%, hsl(var(--purple-50)) 100%)',
-        'card-gradient': 'linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(245,250,255,0.9) 100%)',
-        'hero-gradient': 'linear-gradient(135deg, hsl(var(--snowy-100)) 0%, hsl(var(--ice-100)) 30%, hsl(var(--purple-100)) 70%, hsl(var(--snowy-200)) 100%)',
+        "snowy-gradient":
+          "linear-gradient(135deg, hsl(var(--snowy-50)) 0%, hsl(var(--ice-100)) 40%, hsl(var(--purple-100)) 100%)",
+        "premium-gradient":
+          "linear-gradient(145deg, hsl(var(--snowy-100)) 0%, hsl(var(--ice-50)) 50%, hsl(var(--purple-50)) 100%)",
+        "card-gradient":
+          "linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(245,250,255,0.9) 100%)",
+        "hero-gradient":
+          "linear-gradient(135deg, hsl(var(--snowy-100)) 0%, hsl(var(--ice-100)) 30%, hsl(var(--purple-100)) 70%, hsl(var(--snowy-200)) 100%)",
       },
     },
   },

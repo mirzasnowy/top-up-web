@@ -1,21 +1,21 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Menu, X, Snowflake } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Menu, X, Snowflake } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/how-to-topup', label: 'Cara Top Up' },
-    { href: '/transaction-status', label: 'Status Transaksi' },
-    { href: '/contact', label: 'Kontak' },
+    { href: "/", label: "Home" },
+    { href: "/how-to-topup", label: "Cara Top Up" },
+    { href: "/transaction-status", label: "Status Transaksi" },
+    { href: "/contact", label: "Kontak" },
   ];
 
   return (
-    <motion.header 
+    <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -78,7 +78,7 @@ export default function Header() {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="md:hidden border-t border-border/40 py-4"

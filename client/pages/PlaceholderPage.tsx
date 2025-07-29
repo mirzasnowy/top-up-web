@@ -1,8 +1,8 @@
-import Layout from '@/components/layout/Layout';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Construction, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Layout from "@/components/layout/Layout";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Construction, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface PlaceholderPageProps {
   title: string;
@@ -10,10 +10,10 @@ interface PlaceholderPageProps {
   iconComponent?: React.ComponentType<any>;
 }
 
-export default function PlaceholderPage({ 
-  title, 
-  description, 
-  iconComponent: Icon = Construction 
+export default function PlaceholderPage({
+  title,
+  description,
+  iconComponent: Icon = Construction,
 }: PlaceholderPageProps) {
   return (
     <Layout>
@@ -28,21 +28,18 @@ export default function PlaceholderPage({
             <div className="w-24 h-24 mx-auto bg-snowy-100 dark:bg-snowy-800 rounded-full flex items-center justify-center">
               <Icon className="w-12 h-12 text-snowy-500" />
             </div>
-            
+
             <div className="space-y-3">
-              <h1 className="text-2xl font-bold text-foreground">
-                {title}
-              </h1>
-              <p className="text-muted-foreground">
-                {description}
-              </p>
+              <h1 className="text-2xl font-bold text-foreground">{title}</h1>
+              <p className="text-muted-foreground">{description}</p>
             </div>
 
             <div className="space-y-3">
               <p className="text-sm text-muted-foreground">
-                Halaman ini sedang dalam pengembangan. Silakan kembali nanti atau hubungi kami untuk informasi lebih lanjut.
+                Halaman ini sedang dalam pengembangan. Silakan kembali nanti
+                atau hubungi kami untuk informasi lebih lanjut.
               </p>
-              
+
               <Link to="/">
                 <Button className="bg-gradient-to-r from-snowy-500 to-ice-500 hover:from-snowy-600 hover:to-ice-600 text-white">
                   <ArrowLeft className="w-4 h-4 mr-2" />

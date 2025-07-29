@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Gamepad2, Star, Zap } from 'lucide-react';
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Gamepad2, Star, Zap } from "lucide-react";
 
 interface GameCardProps {
   id: string;
@@ -20,7 +20,7 @@ export default function GameCard({
   category,
   rating,
   isPopular = false,
-  description
+  description,
 }: GameCardProps) {
   return (
     <motion.div
@@ -62,8 +62,10 @@ export default function GameCard({
                   className="w-14 h-14 rounded-lg object-cover"
                   onError={(e) => {
                     // Fallback to icon if image fails to load
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                    e.currentTarget.style.display = "none";
+                    e.currentTarget.nextElementSibling?.classList.remove(
+                      "hidden",
+                    );
                   }}
                 />
                 <Gamepad2 className="w-14 h-14 text-snowy-500 hidden" />
@@ -90,9 +92,7 @@ export default function GameCard({
               <Star
                 key={i}
                 className={`h-4 w-4 ${
-                  i < rating
-                    ? 'text-yellow-400 fill-current'
-                    : 'text-gray-300'
+                  i < rating ? "text-yellow-400 fill-current" : "text-gray-300"
                 }`}
               />
             ))}
@@ -104,9 +104,7 @@ export default function GameCard({
           {/* Action Button - Always at bottom */}
           <div className="mt-auto">
             <Link to={`/topup/${id}`}>
-              <Button
-                className="w-full bg-gradient-to-r from-snowy-500 to-purple-500 hover:from-snowy-600 hover:to-purple-600 text-white font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              >
+              <Button className="w-full bg-gradient-to-r from-snowy-500 to-purple-500 hover:from-snowy-600 hover:to-purple-600 text-white font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
                 <Zap className="w-4 h-4 mr-2 group-hover:animate-pulse" />
                 Top Up Sekarang
               </Button>

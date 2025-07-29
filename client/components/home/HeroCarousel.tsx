@@ -1,36 +1,42 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight, Zap, Star } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight, Zap, Star } from "lucide-react";
 
 const heroSlides = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1920&h=800&fit=crop&crop=center',
-    title: 'Top Up Game',
-    subtitle: 'Cepat & Hemat',
-    description: 'Platform top up game terpercaya dengan harga terbaik dan proses yang super cepat.',
-    cta: 'Mulai Top Up',
-    gradient: 'from-blue-600/70 via-purple-600/60 to-cyan-500/70'
+    image:
+      "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1920&h=800&fit=crop&crop=center",
+    title: "Top Up Game",
+    subtitle: "Cepat & Hemat",
+    description:
+      "Platform top up game terpercaya dengan harga terbaik dan proses yang super cepat.",
+    cta: "Mulai Top Up",
+    gradient: "from-blue-600/70 via-purple-600/60 to-cyan-500/70",
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1556438064-2d7646166914?w=1920&h=800&fit=crop&crop=center',
-    title: 'Mobile Legends',
-    subtitle: 'Diamond Termurah',
-    description: 'Dapatkan diamond Mobile Legends dengan harga termurah dan proses tercepat di Snowy Store.',
-    cta: 'Top Up Sekarang',
-    gradient: 'from-cyan-500/70 via-blue-500/60 to-purple-600/70'
+    image:
+      "https://images.unsplash.com/photo-1556438064-2d7646166914?w=1920&h=800&fit=crop&crop=center",
+    title: "Mobile Legends",
+    subtitle: "Diamond Termurah",
+    description:
+      "Dapatkan diamond Mobile Legends dengan harga termurah dan proses tercepat di Snowy Store.",
+    cta: "Top Up Sekarang",
+    gradient: "from-cyan-500/70 via-blue-500/60 to-purple-600/70",
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=1920&h=800&fit=crop&crop=center',
-    title: 'PUBG Mobile',
-    subtitle: 'UC Premium',
-    description: 'Beli UC PUBG Mobile untuk upgrade gear dan skin keren dengan harga terjangkau.',
-    cta: 'Beli UC',
-    gradient: 'from-purple-600/70 via-pink-500/60 to-blue-500/70'
-  }
+    image:
+      "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=1920&h=800&fit=crop&crop=center",
+    title: "PUBG Mobile",
+    subtitle: "UC Premium",
+    description:
+      "Beli UC PUBG Mobile untuk upgrade gear dan skin keren dengan harga terjangkau.",
+    cta: "Beli UC",
+    gradient: "from-purple-600/70 via-pink-500/60 to-blue-500/70",
+  },
 ];
 
 export default function HeroCarousel() {
@@ -42,13 +48,15 @@ export default function HeroCarousel() {
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + heroSlides.length) % heroSlides.length,
+    );
   };
 
   // Auto-advance slides
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
       nextSlide();
     }, 5000); // Change slide every 5 seconds
@@ -70,7 +78,7 @@ export default function HeroCarousel() {
             exit={{ scale: 0.9, opacity: 0, x: -100 }}
             transition={{
               duration: 1,
-              ease: [0.25, 0.46, 0.45, 0.94]
+              ease: [0.25, 0.46, 0.45, 0.94],
             }}
             className="absolute inset-0"
           >
@@ -83,7 +91,9 @@ export default function HeroCarousel() {
               transition={{ duration: 1.2, ease: "easeOut" }}
             />
             {/* Gradient Overlay */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${currentSlideData.gradient}`} />
+            <div
+              className={`absolute inset-0 bg-gradient-to-br ${currentSlideData.gradient}`}
+            />
             {/* Additional semi-transparent overlay for readability */}
             <div className="absolute inset-0 bg-black/30" />
           </motion.div>
@@ -100,10 +110,10 @@ export default function HeroCarousel() {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -30, opacity: 0 }}
-                transition={{ 
+                transition={{
                   duration: 0.6,
                   ease: [0.4, 0, 0.2, 1],
-                  delay: 0.2
+                  delay: 0.2,
                 }}
                 className="space-y-6"
               >
@@ -126,15 +136,19 @@ export default function HeroCarousel() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                  <Button 
+                  <Button
                     size="lg"
                     className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 text-lg border-2 border-white/20"
-                    onClick={() => document.getElementById('games-catalog')?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() =>
+                      document
+                        .getElementById("games-catalog")
+                        ?.scrollIntoView({ behavior: "smooth" })
+                    }
                   >
                     <Zap className="w-5 h-5 mr-2" />
                     {currentSlideData.cta}
                   </Button>
-                  
+
                   <Button
                     variant="outline"
                     size="lg"
@@ -179,8 +193,8 @@ export default function HeroCarousel() {
             onMouseLeave={() => setIsAutoPlaying(true)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentSlide
-                ? 'bg-white scale-125 shadow-lg'
-                : 'bg-white/50 hover:bg-white/75'
+                ? "bg-white scale-125 shadow-lg"
+                : "bg-white/50 hover:bg-white/75"
             }`}
           />
         ))}
@@ -195,7 +209,7 @@ export default function HeroCarousel() {
                 { icon: Zap, title: "Proses Cepat", desc: "Instan" },
                 { icon: Star, title: "Harga Terbaik", desc: "Termurah" },
                 { icon: Zap, title: "100% Aman", desc: "Terpercaya" },
-                { icon: Star, title: "24/7 Support", desc: "Siap Bantu" }
+                { icon: Star, title: "24/7 Support", desc: "Siap Bantu" },
               ].map((feature, index) => (
                 <motion.div
                   key={feature.title}
@@ -205,7 +219,9 @@ export default function HeroCarousel() {
                   className="text-center"
                 >
                   <feature.icon className="w-6 h-6 text-snowy-600 mx-auto mb-2" />
-                  <h3 className="font-semibold text-sm text-gray-800">{feature.title}</h3>
+                  <h3 className="font-semibold text-sm text-gray-800">
+                    {feature.title}
+                  </h3>
                   <p className="text-xs text-gray-600">{feature.desc}</p>
                 </motion.div>
               ))}

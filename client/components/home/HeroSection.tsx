@@ -1,29 +1,29 @@
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Zap, Shield, Clock, Star } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Zap, Shield, Clock, Star } from "lucide-react";
 
 export default function HeroSection() {
   const features = [
     {
       icon: Zap,
       title: "Proses Cepat",
-      description: "Top up dalam hitungan detik"
+      description: "Top up dalam hitungan detik",
     },
     {
       icon: Shield,
       title: "100% Aman",
-      description: "Transaksi terjamin keamanannya"
+      description: "Transaksi terjamin keamanannya",
     },
     {
       icon: Clock,
       title: "24/7 Service",
-      description: "Layanan tersedia sepanjang waktu"
+      description: "Layanan tersedia sepanjang waktu",
     },
     {
       icon: Star,
       title: "Harga Terbaik",
-      description: "Dijamin harga termurah"
-    }
+      description: "Dijamin harga termurah",
+    },
   ];
 
   return (
@@ -32,7 +32,10 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-snowy-50 via-ice-50 to-snowy-100 dark:from-snowy-900 dark:via-snowy-800 dark:to-snowy-900" />
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-snowy-200/30 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-ice-200/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+        <div
+          className="absolute bottom-20 right-10 w-96 h-96 bg-ice-200/20 rounded-full blur-3xl animate-float"
+          style={{ animationDelay: "2s" }}
+        />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -49,14 +52,12 @@ export default function HeroSection() {
                 Top Up Game
               </span>
               <br />
-              <span className="text-foreground">
-                Cepat & Hemat
-              </span>
+              <span className="text-foreground">Cepat & Hemat</span>
             </h1>
-            
+
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Platform top up game terpercaya dengan harga terbaik dan proses yang super cepat. 
-              Nikmati pengalaman bermain tanpa batas!
+              Platform top up game terpercaya dengan harga terbaik dan proses
+              yang super cepat. Nikmati pengalaman bermain tanpa batas!
             </p>
           </motion.div>
 
@@ -67,15 +68,19 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
-            <Button 
+            <Button
               size="lg"
               className="bg-gradient-to-r from-snowy-500 to-ice-500 hover:from-snowy-600 hover:to-ice-600 text-white font-semibold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 text-lg"
-              onClick={() => document.getElementById('games-catalog')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() =>
+                document
+                  .getElementById("games-catalog")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               <Zap className="w-5 h-5 mr-2" />
               Mulai Top Up
             </Button>
-            <Button 
+            <Button
               variant="outline"
               size="lg"
               className="border-snowy-300 text-snowy-600 hover:bg-snowy-50 dark:border-snowy-600 dark:text-snowy-400 dark:hover:bg-snowy-900 font-semibold px-8 py-4 rounded-xl text-lg"

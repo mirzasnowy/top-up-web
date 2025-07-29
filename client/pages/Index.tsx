@@ -1,65 +1,69 @@
-import { motion } from 'framer-motion';
-import Layout from '@/components/layout/Layout';
-import HeroCarousel from '@/components/home/HeroCarousel';
-import GameCard from '@/components/game/GameCard';
-import { Gamepad2, TrendingUp } from 'lucide-react';
+import { motion } from "framer-motion";
+import Layout from "@/components/layout/Layout";
+import HeroCarousel from "@/components/home/HeroCarousel";
+import GameCard from "@/components/game/GameCard";
+import { Gamepad2, TrendingUp } from "lucide-react";
 
 export default function Index() {
   const games = [
     {
-      id: 'mobile-legends',
-      name: 'Mobile Legends',
-      icon: 'https://images.unsplash.com/photo-1556438064-2d7646166914?w=100&h=100&fit=crop&crop=center',
-      category: 'MOBA',
+      id: "mobile-legends",
+      name: "Mobile Legends",
+      icon: "https://images.unsplash.com/photo-1556438064-2d7646166914?w=100&h=100&fit=crop&crop=center",
+      category: "MOBA",
       rating: 5,
       isPopular: true,
-      description: 'Top up Diamond Mobile Legends dengan harga termurah dan proses tercepat!'
+      description:
+        "Top up Diamond Mobile Legends dengan harga termurah dan proses tercepat!",
     },
     {
-      id: 'pubg-mobile',
-      name: 'PUBG Mobile',
-      icon: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=100&h=100&fit=crop&crop=center',
-      category: 'Battle Royale',
+      id: "pubg-mobile",
+      name: "PUBG Mobile",
+      icon: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=100&h=100&fit=crop&crop=center",
+      category: "Battle Royale",
       rating: 5,
       isPopular: true,
-      description: 'Beli UC PUBG Mobile untuk upgrade gear dan skin keren!'
+      description: "Beli UC PUBG Mobile untuk upgrade gear dan skin keren!",
     },
     {
-      id: 'free-fire',
-      name: 'Free Fire',
-      icon: 'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=100&h=100&fit=crop&crop=center',
-      category: 'Battle Royale',
+      id: "free-fire",
+      name: "Free Fire",
+      icon: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=100&h=100&fit=crop&crop=center",
+      category: "Battle Royale",
       rating: 4,
       isPopular: true,
-      description: 'Top up Diamond Free Fire untuk skin dan karakter eksklusif!'
+      description:
+        "Top up Diamond Free Fire untuk skin dan karakter eksklusif!",
     },
     {
-      id: 'genshin-impact',
-      name: 'Genshin Impact',
-      icon: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=100&h=100&fit=crop&crop=center',
-      category: 'RPG',
+      id: "genshin-impact",
+      name: "Genshin Impact",
+      icon: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=100&h=100&fit=crop&crop=center",
+      category: "RPG",
       rating: 5,
       isPopular: false,
-      description: 'Beli Genesis Crystal untuk Primo Gem dan dapatkan karakter impian!'
+      description:
+        "Beli Genesis Crystal untuk Primo Gem dan dapatkan karakter impian!",
     },
     {
-      id: 'roblox',
-      name: 'Roblox',
-      icon: 'https://images.unsplash.com/photo-1580234797602-22c37a4e319e?w=100&h=100&fit=crop&crop=center',
-      category: 'Sandbox',
+      id: "roblox",
+      name: "Roblox",
+      icon: "https://images.unsplash.com/photo-1580234797602-22c37a4e319e?w=100&h=100&fit=crop&crop=center",
+      category: "Sandbox",
       rating: 4,
       isPopular: false,
-      description: 'Top up Robux untuk membeli item dan aksesoris keren di Roblox!'
+      description:
+        "Top up Robux untuk membeli item dan aksesoris keren di Roblox!",
     },
     {
-      id: 'valorant',
-      name: 'Valorant',
-      icon: 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=100&h=100&fit=crop&crop=center',
-      category: 'FPS',
+      id: "valorant",
+      name: "Valorant",
+      icon: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=100&h=100&fit=crop&crop=center",
+      category: "FPS",
       rating: 5,
       isPopular: false,
-      description: 'Beli VP Valorant untuk skin senjata dan agent terbaru!'
-    }
+      description: "Beli VP Valorant untuk skin senjata dan agent terbaru!",
+    },
   ];
 
   return (
@@ -88,7 +92,8 @@ export default function Index() {
               Pilih Game Favorit Kamu
             </h2>
             <p className="text-lg text-muted-foreground">
-              Top up berbagai game populer dengan harga terbaik dan proses yang super cepat
+              Top up berbagai game populer dengan harga terbaik dan proses yang
+              super cepat
             </p>
           </motion.div>
 
@@ -127,8 +132,6 @@ export default function Index() {
               </motion.div>
             ))}
           </motion.div>
-
-
         </div>
       </section>
     </Layout>

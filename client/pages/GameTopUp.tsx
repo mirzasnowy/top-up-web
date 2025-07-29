@@ -1,57 +1,141 @@
-import { useParams, Link } from 'react-router-dom';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import Layout from '@/components/layout/Layout';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { ArrowLeft, Zap, Shield, Clock, Star } from 'lucide-react';
+import { useParams, Link } from "react-router-dom";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import Layout from "@/components/layout/Layout";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ArrowLeft, Zap, Shield, Clock, Star } from "lucide-react";
 
 export default function GameTopUp() {
   const { gameId } = useParams();
-  const [selectedPackage, setSelectedPackage] = useState<string>('');
-  const [gameUserId, setGameUserId] = useState('');
-  const [serverId, setServerId] = useState('');
+  const [selectedPackage, setSelectedPackage] = useState<string>("");
+  const [gameUserId, setGameUserId] = useState("");
+  const [serverId, setServerId] = useState("");
 
   // Mock game data - in real app this would come from API
   const gameData = {
-    'mobile-legends': {
-      name: 'Mobile Legends',
-      currency: 'Diamond',
+    "mobile-legends": {
+      name: "Mobile Legends",
+      currency: "Diamond",
       needsServer: true,
       packages: [
-        { id: '1', amount: '86 Diamond', price: 'Rp 20.000', bonus: '', popular: false },
-        { id: '2', amount: '172 Diamond', price: 'Rp 40.000', bonus: '', popular: false },
-        { id: '3', amount: '257 Diamond', price: 'Rp 59.000', bonus: '+15 Diamond', popular: true },
-        { id: '4', amount: '344 Diamond', price: 'Rp 79.000', bonus: '+20 Diamond', popular: false },
-        { id: '5', amount: '429 Diamond', price: 'Rp 99.000', bonus: '+25 Diamond', popular: true },
-        { id: '6', amount: '514 Diamond', price: 'Rp 118.000', bonus: '+30 Diamond', popular: false },
-      ]
+        {
+          id: "1",
+          amount: "86 Diamond",
+          price: "Rp 20.000",
+          bonus: "",
+          popular: false,
+        },
+        {
+          id: "2",
+          amount: "172 Diamond",
+          price: "Rp 40.000",
+          bonus: "",
+          popular: false,
+        },
+        {
+          id: "3",
+          amount: "257 Diamond",
+          price: "Rp 59.000",
+          bonus: "+15 Diamond",
+          popular: true,
+        },
+        {
+          id: "4",
+          amount: "344 Diamond",
+          price: "Rp 79.000",
+          bonus: "+20 Diamond",
+          popular: false,
+        },
+        {
+          id: "5",
+          amount: "429 Diamond",
+          price: "Rp 99.000",
+          bonus: "+25 Diamond",
+          popular: true,
+        },
+        {
+          id: "6",
+          amount: "514 Diamond",
+          price: "Rp 118.000",
+          bonus: "+30 Diamond",
+          popular: false,
+        },
+      ],
     },
-    'pubg-mobile': {
-      name: 'PUBG Mobile',
-      currency: 'UC',
+    "pubg-mobile": {
+      name: "PUBG Mobile",
+      currency: "UC",
       needsServer: false,
       packages: [
-        { id: '1', amount: '60 UC', price: 'Rp 15.000', bonus: '', popular: false },
-        { id: '2', amount: '325 UC', price: 'Rp 75.000', bonus: '+25 UC', popular: true },
-        { id: '3', amount: '660 UC', price: 'Rp 150.000', bonus: '+60 UC', popular: false },
-        { id: '4', amount: '1800 UC', price: 'Rp 375.000', bonus: '+200 UC', popular: true },
-      ]
+        {
+          id: "1",
+          amount: "60 UC",
+          price: "Rp 15.000",
+          bonus: "",
+          popular: false,
+        },
+        {
+          id: "2",
+          amount: "325 UC",
+          price: "Rp 75.000",
+          bonus: "+25 UC",
+          popular: true,
+        },
+        {
+          id: "3",
+          amount: "660 UC",
+          price: "Rp 150.000",
+          bonus: "+60 UC",
+          popular: false,
+        },
+        {
+          id: "4",
+          amount: "1800 UC",
+          price: "Rp 375.000",
+          bonus: "+200 UC",
+          popular: true,
+        },
+      ],
     },
-    'free-fire': {
-      name: 'Free Fire',
-      currency: 'Diamond',
+    "free-fire": {
+      name: "Free Fire",
+      currency: "Diamond",
       needsServer: false,
       packages: [
-        { id: '1', amount: '70 Diamond', price: 'Rp 10.000', bonus: '', popular: false },
-        { id: '2', amount: '140 Diamond', price: 'Rp 20.000', bonus: '', popular: false },
-        { id: '3', amount: '355 Diamond', price: 'Rp 50.000', bonus: '+35 Diamond', popular: true },
-        { id: '4', amount: '720 Diamond', price: 'Rp 100.000', bonus: '+80 Diamond', popular: false },
-      ]
-    }
+        {
+          id: "1",
+          amount: "70 Diamond",
+          price: "Rp 10.000",
+          bonus: "",
+          popular: false,
+        },
+        {
+          id: "2",
+          amount: "140 Diamond",
+          price: "Rp 20.000",
+          bonus: "",
+          popular: false,
+        },
+        {
+          id: "3",
+          amount: "355 Diamond",
+          price: "Rp 50.000",
+          bonus: "+35 Diamond",
+          popular: true,
+        },
+        {
+          id: "4",
+          amount: "720 Diamond",
+          price: "Rp 100.000",
+          bonus: "+80 Diamond",
+          popular: false,
+        },
+      ],
+    },
   };
 
   const currentGame = gameData[gameId as keyof typeof gameData];
@@ -61,7 +145,9 @@ export default function GameTopUp() {
       <Layout>
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-foreground mb-4">Game Tidak Ditemukan</h1>
+            <h1 className="text-2xl font-bold text-foreground mb-4">
+              Game Tidak Ditemukan
+            </h1>
             <Link to="/">
               <Button>Kembali ke Beranda</Button>
             </Link>
@@ -72,13 +158,21 @@ export default function GameTopUp() {
   }
 
   const handleTopUp = () => {
-    if (!selectedPackage || !gameUserId || (currentGame.needsServer && !serverId)) {
-      alert('Mohon lengkapi semua field yang diperlukan');
+    if (
+      !selectedPackage ||
+      !gameUserId ||
+      (currentGame.needsServer && !serverId)
+    ) {
+      alert("Mohon lengkapi semua field yang diperlukan");
       return;
     }
-    
-    const selectedPkg = currentGame.packages.find(pkg => pkg.id === selectedPackage);
-    alert(`Top up berhasil diproses!\nGame: ${currentGame.name}\nPaket: ${selectedPkg?.amount}\nHarga: ${selectedPkg?.price}`);
+
+    const selectedPkg = currentGame.packages.find(
+      (pkg) => pkg.id === selectedPackage,
+    );
+    alert(
+      `Top up berhasil diproses!\nGame: ${currentGame.name}\nPaket: ${selectedPkg?.amount}\nHarga: ${selectedPkg?.price}`,
+    );
   };
 
   return (
@@ -91,13 +185,19 @@ export default function GameTopUp() {
             animate={{ opacity: 1, y: 0 }}
             className="mb-8"
           >
-            <Link to="/" className="inline-flex items-center text-snowy-600 hover:text-snowy-700 mb-4">
+            <Link
+              to="/"
+              className="inline-flex items-center text-snowy-600 hover:text-snowy-700 mb-4"
+            >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Kembali ke Beranda
             </Link>
-            <h1 className="text-3xl font-bold text-foreground">Top Up {currentGame.name}</h1>
+            <h1 className="text-3xl font-bold text-foreground">
+              Top Up {currentGame.name}
+            </h1>
             <p className="text-muted-foreground mt-2">
-              Isi {currentGame.currency} untuk {currentGame.name} dengan mudah dan cepat
+              Isi {currentGame.currency} untuk {currentGame.name} dengan mudah
+              dan cepat
             </p>
           </motion.div>
 
@@ -160,8 +260,8 @@ export default function GameTopUp() {
                         whileTap={{ scale: 0.98 }}
                         className={`relative p-4 rounded-lg border-2 cursor-pointer transition-all ${
                           selectedPackage === pkg.id
-                            ? 'border-snowy-500 bg-snowy-50 dark:bg-snowy-900/50'
-                            : 'border-border hover:border-snowy-300'
+                            ? "border-snowy-500 bg-snowy-50 dark:bg-snowy-900/50"
+                            : "border-border hover:border-snowy-300"
                         }`}
                         onClick={() => setSelectedPackage(pkg.id)}
                       >
@@ -207,40 +307,46 @@ export default function GameTopUp() {
                     </div>
                     <div className="flex justify-between text-sm">
                       <span>User ID:</span>
-                      <span className="font-medium">{gameUserId || '-'}</span>
+                      <span className="font-medium">{gameUserId || "-"}</span>
                     </div>
                     {currentGame.needsServer && (
                       <div className="flex justify-between text-sm">
                         <span>Server:</span>
-                        <span className="font-medium">{serverId || '-'}</span>
+                        <span className="font-medium">{serverId || "-"}</span>
                       </div>
                     )}
                     <div className="flex justify-between text-sm">
                       <span>Nominal:</span>
                       <span className="font-medium">
-                        {selectedPackage 
-                          ? currentGame.packages.find(p => p.id === selectedPackage)?.amount 
-                          : '-'
-                        }
+                        {selectedPackage
+                          ? currentGame.packages.find(
+                              (p) => p.id === selectedPackage,
+                            )?.amount
+                          : "-"}
                       </span>
                     </div>
                     <div className="border-t pt-2">
                       <div className="flex justify-between font-bold">
                         <span>Total:</span>
                         <span className="text-snowy-600">
-                          {selectedPackage 
-                            ? currentGame.packages.find(p => p.id === selectedPackage)?.price 
-                            : 'Rp 0'
-                          }
+                          {selectedPackage
+                            ? currentGame.packages.find(
+                                (p) => p.id === selectedPackage,
+                              )?.price
+                            : "Rp 0"}
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <Button 
+                  <Button
                     onClick={handleTopUp}
                     className="w-full bg-gradient-to-r from-snowy-500 to-ice-500 hover:from-snowy-600 hover:to-ice-600 text-white"
-                    disabled={!selectedPackage || !gameUserId || (currentGame.needsServer && !serverId)}
+                    disabled={
+                      !selectedPackage ||
+                      !gameUserId ||
+                      (currentGame.needsServer && !serverId)
+                    }
                   >
                     <Zap className="w-4 h-4 mr-2" />
                     Bayar Sekarang

@@ -1,80 +1,95 @@
-import { motion } from 'framer-motion';
-import Layout from '@/components/layout/Layout';
-import { Card, CardContent } from '@/components/ui/card';
-import { 
-  Gamepad2, 
-  User, 
-  CreditCard, 
-  ShoppingCart, 
+import { motion } from "framer-motion";
+import Layout from "@/components/layout/Layout";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Gamepad2,
+  User,
+  CreditCard,
+  ShoppingCart,
   CheckCircle,
   ArrowRight,
   Search,
   Wallet,
-  Shield
-} from 'lucide-react';
+  Shield,
+} from "lucide-react";
 
 export default function HowToTopUp() {
   const steps = [
     {
       id: 1,
       title: "Pilih Game dari Katalog",
-      description: "Pilih game favorit kamu dari katalog game yang tersedia di halaman utama Snowy Store.",
+      description:
+        "Pilih game favorit kamu dari katalog game yang tersedia di halaman utama Snowy Store.",
       icon: Gamepad2,
-      details: "Klik pada card game yang ingin kamu top up. Setiap game memiliki rating dan deskripsi untuk membantu pilihan kamu."
+      details:
+        "Klik pada card game yang ingin kamu top up. Setiap game memiliki rating dan deskripsi untuk membantu pilihan kamu.",
     },
     {
       id: 2,
       title: "Masukkan ID & Server",
-      description: "Isi User ID dan Server ID game kamu dengan benar sesuai data akun game.",
+      description:
+        "Isi User ID dan Server ID game kamu dengan benar sesuai data akun game.",
       icon: User,
-      details: "Pastikan ID yang dimasukkan benar. Untuk game yang memerlukan server, pilih server yang sesuai dengan akun kamu."
+      details:
+        "Pastikan ID yang dimasukkan benar. Untuk game yang memerlukan server, pilih server yang sesuai dengan akun kamu.",
     },
     {
       id: 3,
       title: "Pilih Nominal Top Up",
-      description: "Pilih paket nominal yang diinginkan. Tersedia berbagai pilihan dengan bonus menarik.",
+      description:
+        "Pilih paket nominal yang diinginkan. Tersedia berbagai pilihan dengan bonus menarik.",
       icon: CreditCard,
-      details: "Paket dengan label 'POPULER' biasanya memberikan bonus terbaik. Perhatikan bonus yang diberikan pada setiap paket."
+      details:
+        "Paket dengan label 'POPULER' biasanya memberikan bonus terbaik. Perhatikan bonus yang diberikan pada setiap paket.",
     },
     {
       id: 4,
       title: "Klik 'Bayar Sekarang'",
-      description: "Review pesanan kamu di ringkasan, lalu klik tombol 'Bayar Sekarang' untuk lanjut ke pembayaran.",
+      description:
+        "Review pesanan kamu di ringkasan, lalu klik tombol 'Bayar Sekarang' untuk lanjut ke pembayaran.",
       icon: ShoppingCart,
-      details: "Pastikan semua data sudah benar sebelum melakukan pembayaran. Cek kembali User ID, Server, dan nominal yang dipilih."
+      details:
+        "Pastikan semua data sudah benar sebelum melakukan pembayaran. Cek kembali User ID, Server, dan nominal yang dipilih.",
     },
     {
       id: 5,
       title: "Pilih Metode Pembayaran",
-      description: "Pilih metode pembayaran yang kamu inginkan: QRIS, Virtual Account, atau e-wallet.",
+      description:
+        "Pilih metode pembayaran yang kamu inginkan: QRIS, Virtual Account, atau e-wallet.",
       icon: Wallet,
-      details: "Setiap metode pembayaran memiliki instruksi yang berbeda. Ikuti panduan pembayaran yang muncul di layar."
+      details:
+        "Setiap metode pembayaran memiliki instruksi yang berbeda. Ikuti panduan pembayaran yang muncul di layar.",
     },
     {
       id: 6,
       title: "Selesaikan Pembayaran",
-      description: "Lakukan pembayaran sesuai instruksi dan tunggu konfirmasi status transaksi sukses.",
+      description:
+        "Lakukan pembayaran sesuai instruksi dan tunggu konfirmasi status transaksi sukses.",
       icon: CheckCircle,
-      details: "Setelah pembayaran berhasil, item akan otomatis masuk ke akun game kamu dalam hitungan menit."
-    }
+      details:
+        "Setelah pembayaran berhasil, item akan otomatis masuk ke akun game kamu dalam hitungan menit.",
+    },
   ];
 
   const tips = [
     {
       icon: Shield,
       title: "Tips Keamanan",
-      content: "Selalu pastikan User ID dan Server ID yang dimasukkan benar untuk menghindari kesalahan pengiriman."
+      content:
+        "Selalu pastikan User ID dan Server ID yang dimasukkan benar untuk menghindari kesalahan pengiriman.",
     },
     {
       icon: Search,
-      title: "Cek Status Transaksi", 
-      content: "Gunakan fitur 'Status Transaksi' untuk memantau progress pembayaran dan pengiriman item game."
+      title: "Cek Status Transaksi",
+      content:
+        "Gunakan fitur 'Status Transaksi' untuk memantau progress pembayaran dan pengiriman item game.",
     },
     {
       icon: CheckCircle,
       title: "Proses Cepat",
-      content: "Top up biasanya diproses dalam 1-5 menit setelah pembayaran berhasil dikonfirmasi."
-    }
+      content:
+        "Top up biasanya diproses dalam 1-5 menit setelah pembayaran berhasil dikonfirmasi.",
+    },
   ];
 
   return (
@@ -91,7 +106,8 @@ export default function HowToTopUp() {
               Cara Top Up di Snowy Store
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ikuti panduan step-by-step berikut untuk melakukan top up game dengan mudah dan aman
+              Ikuti panduan step-by-step berikut untuk melakukan top up game
+              dengan mudah dan aman
             </p>
           </motion.div>
 
@@ -105,7 +121,7 @@ export default function HowToTopUp() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className={`flex flex-col lg:flex-row items-center gap-8 ${
-                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
               >
                 {/* Content */}
