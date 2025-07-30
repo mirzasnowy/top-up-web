@@ -70,7 +70,7 @@ export default function HeroSection() {
           >
             <Button
               size="lg"
-              className="bg-gradient-to-r from-snowy-500 to-ice-500 hover:from-snowy-600 hover:to-ice-600 text-white font-semibold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 text-lg"
+              className="bg-gradient-to-r from-snowy-500 to-ice-500 hover:from-snowy-600 hover:to-ice-600 text-white font-semibold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 text-xs sm:text-lg"
               onClick={() =>
                 document
                   .getElementById("games-catalog")
@@ -83,7 +83,7 @@ export default function HeroSection() {
             <Button
               variant="outline"
               size="lg"
-              className="border-snowy-300 text-snowy-600 hover:bg-snowy-50 dark:border-snowy-600 dark:text-snowy-400 dark:hover:bg-snowy-900 font-semibold px-8 py-4 rounded-xl text-lg"
+              className="border-snowy-300 text-snowy-600 hover:bg-snowy-50 dark:border-snowy-600 dark:text-snowy-400 dark:hover:bg-snowy-900 font-semibold px-8 py-4 rounded-xl text-xs sm:text-lg"
             >
               Pelajari Lebih Lanjut
             </Button>
@@ -104,11 +104,11 @@ export default function HeroSection() {
                 transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                 className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-snowy-200/50 dark:border-snowy-700/50"
               >
-                <feature.icon className="w-8 h-8 text-snowy-500 mx-auto mb-3" />
-                <h3 className="font-semibold text-foreground mb-2">
+                <feature.icon className="w-5 h-5 text-snowy-500 mx-auto mb-1" />
+                <h3 className="font-semibold text-xs text-foreground mb-1">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs text-muted-foreground">
                   {feature.description}
                 </p>
               </motion.div>

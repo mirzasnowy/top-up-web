@@ -7,14 +7,14 @@ import SnowEffect from "../effects/SnowEffect";
 const heroSlides = [
   {
     id: 1,
-    image: "/poster_snowy.jpg",
+    image: "/killua.png",
     title: "Top Up Game",
     subtitle: "Cepat & Hemat",
     description:
       "Platform top up game terpercaya dengan harga terbaik dan proses yang super cepat.",
     cta: "Mulai Top Up",
     gradient: "from-blue-600/70 via-purple-600/60 to-cyan-500/70",
-    imageClassName: "object-center",
+    imageClassName: "object-cover lg:object-[50%_25%]"
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const heroSlides = [
   {
     id: 3,
     image:
-      "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=1920&h=800&fit=crop&crop=center",
+      "/pubg.webp",
     title: "PUBG Mobile",
     subtitle: "UC Premium",
     description:
@@ -141,7 +141,7 @@ export default function HeroCarousel() {
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-4">
                     <Button
                       size="lg"
-                      className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-xl shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 text-base sm:text-lg border-2 border-white/20"
+                      className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-xl shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 text-xs sm:text-base md:text-lg border-2 border-white/20"
                       onClick={() =>
                         document
                           .getElementById("games-catalog")
@@ -155,7 +155,7 @@ export default function HeroCarousel() {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="border-2 border-white bg-white/10 text-white hover:bg-white/25 hover:border-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-xl backdrop-blur-md text-base sm:text-lg shadow-lg transition-all duration-300"
+                      className="border-2 border-white bg-white/10 text-white hover:bg-white/25 hover:border-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-xl backdrop-blur-md text-xs sm:text-base md:text-lg shadow-lg transition-all duration-300"
                     >
                       <Star className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                       Lihat Promo
@@ -227,7 +227,7 @@ export default function HeroCarousel() {
                   className="text-center"
                 >
                   <feature.icon className="w-6 h-6 text-snowy-600 mx-auto mb-2" />
-                  <h3 className="font-semibold text-sm text-gray-800">
+                  <h3 className="font-semibold text-xs text-gray-800">
                     {feature.title}
                   </h3>
                   <p className="text-xs text-gray-600">{feature.desc}</p>

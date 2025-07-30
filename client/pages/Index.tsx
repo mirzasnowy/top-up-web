@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import HeroCarousel from "@/components/home/HeroCarousel";
+import PosterCarousel from "@/components/home/PosterCarousel";
 import GameCard from "@/components/game/GameCard";
 import { Gamepad2, TrendingUp } from "lucide-react";
 
@@ -71,6 +72,9 @@ export default function Index() {
       {/* Hero Carousel */}
       <HeroCarousel />
 
+      {/* Poster Carousel */}
+      <PosterCarousel />
+
       {/* Games Catalog Section */}
       <section id="games-catalog" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -117,7 +121,7 @@ export default function Index() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+            className="grid grid-cols-3 gap-6 lg:gap-8"
           >
             {games.map((game, index) => (
               <motion.div
