@@ -9,7 +9,7 @@ export default function Index() {
     {
       id: "mobile-legends",
       name: "Mobile Legends",
-      icon: "https://images.unsplash.com/photo-1556438064-2d7646166914?w=100&h=100&fit=crop&crop=center",
+      artwork: "/ml_game.webp",
       category: "MOBA",
       rating: 5,
       isPopular: true,
@@ -19,7 +19,7 @@ export default function Index() {
     {
       id: "pubg-mobile",
       name: "PUBG Mobile",
-      icon: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=100&h=100&fit=crop&crop=center",
+      artwork: "/pubg_game.webp",
       category: "Battle Royale",
       rating: 5,
       isPopular: true,
@@ -28,7 +28,7 @@ export default function Index() {
     {
       id: "free-fire",
       name: "Free Fire",
-      icon: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=100&h=100&fit=crop&crop=center",
+      artwork: "/ff_game.webp",
       category: "Battle Royale",
       rating: 4,
       isPopular: true,
@@ -38,7 +38,7 @@ export default function Index() {
     {
       id: "genshin-impact",
       name: "Genshin Impact",
-      icon: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=100&h=100&fit=crop&crop=center",
+      artwork: "/genshin_game.jpg",
       category: "RPG",
       rating: 5,
       isPopular: false,
@@ -48,7 +48,7 @@ export default function Index() {
     {
       id: "roblox",
       name: "Roblox",
-      icon: "https://images.unsplash.com/photo-1580234797602-22c37a4e319e?w=100&h=100&fit=crop&crop=center",
+      artwork: "/roblox_game.jpg",
       category: "Sandbox",
       rating: 4,
       isPopular: false,
@@ -58,7 +58,7 @@ export default function Index() {
     {
       id: "valorant",
       name: "Valorant",
-      icon: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=100&h=100&fit=crop&crop=center",
+      artwork: "/valorant_game.webp",
       category: "FPS",
       rating: 5,
       isPopular: false,

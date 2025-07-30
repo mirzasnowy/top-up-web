@@ -25,13 +25,7 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo and Brand */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <motion.div
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
-              className="p-2 rounded-lg bg-snowy-gradient"
-            >
-              <Snowflake className="h-6 w-6 text-snowy-600" />
-            </motion.div>
+            <img src="/logo.png" alt="Snowy Store Logo" className="h-12 w-auto" />
             <div className="flex flex-col">
               <span className="text-xl font-bold bg-gradient-to-r from-snowy-600 to-ice-500 bg-clip-text text-transparent">
                 Snowy Store

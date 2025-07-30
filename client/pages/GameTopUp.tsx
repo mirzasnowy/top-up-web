@@ -19,6 +19,7 @@ export default function GameTopUp() {
   const gameData = {
     "mobile-legends": {
       name: "Mobile Legends",
+      artwork: "/ml_game.webp",
       currency: "Diamond",
       needsServer: true,
       packages: [
@@ -68,6 +69,7 @@ export default function GameTopUp() {
     },
     "pubg-mobile": {
       name: "PUBG Mobile",
+      artwork: "/pubg_game.webp",
       currency: "UC",
       needsServer: false,
       packages: [
@@ -103,6 +105,7 @@ export default function GameTopUp() {
     },
     "free-fire": {
       name: "Free Fire",
+      artwork: "/ff_game.webp",
       currency: "Diamond",
       needsServer: false,
       packages: [
@@ -133,6 +136,72 @@ export default function GameTopUp() {
           price: "Rp 100.000",
           bonus: "+80 Diamond",
           popular: false,
+        },
+      ],
+    },
+    "genshin-impact": {
+      name: "Genshin Impact",
+      artwork: "/genshin_game.jpg",
+      currency: "Genesis Crystal",
+      needsServer: true,
+      packages: [
+        {
+          id: "1",
+          amount: "60 Genesis Crystal",
+          price: "Rp 16.000",
+          bonus: "",
+          popular: false,
+        },
+        {
+          id: "2",
+          amount: "300 Genesis Crystal",
+          price: "Rp 79.000",
+          bonus: "+30 Genesis Crystal",
+          popular: true,
+        },
+      ],
+    },
+    valorant: {
+      name: "Valorant",
+      artwork: "/valorant_game.webp",
+      currency: "Points",
+      needsServer: false,
+      packages: [
+        {
+          id: "1",
+          amount: "125 Points",
+          price: "Rp 15.000",
+          bonus: "",
+          popular: false,
+        },
+        {
+          id: "2",
+          amount: "420 Points",
+          price: "Rp 50.000",
+          bonus: "",
+          popular: true,
+        },
+      ],
+    },
+    roblox: {
+      name: "Roblox",
+      artwork: "/roblox_game.jpg",
+      currency: "Robux",
+      needsServer: false,
+      packages: [
+        {
+          id: "1",
+          amount: "80 Robux",
+          price: "Rp 16.000",
+          bonus: "",
+          popular: false,
+        },
+        {
+          id: "2",
+          amount: "400 Robux",
+          price: "Rp 79.000",
+          bonus: "",
+          popular: true,
         },
       ],
     },

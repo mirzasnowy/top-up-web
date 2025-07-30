@@ -2,29 +2,30 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Zap, Star } from "lucide-react";
+import SnowEffect from "../effects/SnowEffect";
 
 const heroSlides = [
   {
     id: 1,
-    image:
-      "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1920&h=800&fit=crop&crop=center",
+    image: "/poster_snowy.jpg",
     title: "Top Up Game",
     subtitle: "Cepat & Hemat",
     description:
       "Platform top up game terpercaya dengan harga terbaik dan proses yang super cepat.",
     cta: "Mulai Top Up",
     gradient: "from-blue-600/70 via-purple-600/60 to-cyan-500/70",
+    imageClassName: "object-center",
   },
   {
     id: 2,
-    image:
-      "https://images.unsplash.com/photo-1556438064-2d7646166914?w=1920&h=800&fit=crop&crop=center",
+    image: "/ic_ml.jpg",
     title: "Mobile Legends",
     subtitle: "Diamond Termurah",
     description:
       "Dapatkan diamond Mobile Legends dengan harga termurah dan proses tercepat di Snowy Store.",
     cta: "Top Up Sekarang",
     gradient: "from-cyan-500/70 via-blue-500/60 to-purple-600/70",
+    imageClassName: "object-top",
   },
   {
     id: 3,
@@ -36,133 +37,136 @@ const heroSlides = [
       "Beli UC PUBG Mobile untuk upgrade gear dan skin keren dengan harga terjangkau.",
     cta: "Beli UC",
     gradient: "from-purple-600/70 via-pink-500/60 to-blue-500/70",
+    imageClassName: "object-center",
   },
 ];
 
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [direction, setDirection] = useState(0);
 
   const nextSlide = () => {
+    setDirection(1);
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   };
 
   const prevSlide = () => {
+    setDirection(-1);
     setCurrentSlide(
       (prev) => (prev - 1 + heroSlides.length) % heroSlides.length,
     );
   };
 
-  // Auto-advance slides
   useEffect(() => {
     if (!isAutoPlaying) return;
-
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000); // Change slide every 5 seconds
-
+    const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
-  }, [currentSlide, isAutoPlaying]);
+  }, [isAutoPlaying]);
 
   const currentSlideData = heroSlides[currentSlide];
 
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? "100%" : "-100%",
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? "100%" : "-100%",
+      opacity: 0,
+    }),
+  };
+
   return (
-    <section className="relative h-[80vh] min-h-[600px] overflow-hidden">
-      {/* Background Image with Parallax Effect */}
-      <div className="absolute inset-0">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlideData.id}
-            initial={{ scale: 1.1, opacity: 0, x: 100 }}
-            animate={{ scale: 1, opacity: 1, x: 0 }}
-            exit={{ scale: 0.9, opacity: 0, x: -100 }}
-            transition={{
-              duration: 1,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-            className="absolute inset-0"
-          >
-            <motion.img
-              src={currentSlideData.image}
-              alt={currentSlideData.title}
-              className="w-full h-full object-cover"
-              initial={{ scale: 1.05 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-            />
-            {/* Gradient Overlay */}
-            <div
-              className={`absolute inset-0 bg-gradient-to-br ${currentSlideData.gradient}`}
-            />
-            {/* Additional semi-transparent overlay for readability */}
-            <div className="absolute inset-0 bg-black/30" />
-          </motion.div>
-        </AnimatePresence>
-      </div>
+        <section className="relative h-[80vh] min-h-[600px] overflow-hidden">
+      <AnimatePresence initial={false} custom={direction}>
+        <motion.div
+          key={currentSlide}
+          custom={direction}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{
+            x: { type: "tween", ease: [0.4, 0, 0.2, 1], duration: 1.2 },
+            opacity: { duration: 0.5 },
+          }}
+          className="absolute inset-0"
+        >
+          {/* Background Image & Overlays */}
+          <img
+            src={currentSlideData.image}
+            alt={currentSlideData.title}
+            className={`w-full h-full object-cover ${currentSlideData.imageClassName}`}
+          />
+          <div
+            className={`absolute inset-0 bg-gradient-to-br ${currentSlideData.gradient}`}
+          />
+          <div className="absolute inset-0 bg-black/30" />
 
-      {/* Content Overlay */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentSlideData.id}
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -30, opacity: 0 }}
-                transition={{
-                  duration: 0.6,
-                  ease: [0.4, 0, 0.2, 1],
-                  delay: 0.2,
-                }}
-                className="space-y-6"
-              >
-                {/* Main Title */}
-                <div className="space-y-2">
-                  <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white drop-shadow-2xl">
-                    {currentSlideData.title}
-                  </h1>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent drop-shadow-lg">
-                    {currentSlideData.subtitle}
-                  </h2>
-                </div>
+          {/* Content Overlay - Now inside the sliding div */}
+          <div className="absolute inset-0 z-10 h-full flex items-center">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-4xl mx-auto text-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                  className="space-y-6"
+                >
+                  {/* Main Title */}
+                  <div className="space-y-2">
+                    <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white drop-shadow-2xl">
+                      {currentSlideData.title}
+                    </h1>
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent drop-shadow-lg">
+                      {currentSlideData.subtitle}
+                    </h2>
+                  </div>
 
-                {/* Description */}
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mx-auto max-w-2xl border border-white/20">
-                  <p className="text-xl text-white leading-relaxed drop-shadow-lg">
-                    {currentSlideData.description}
-                  </p>
-                </div>
+                  {/* Description */}
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mx-auto max-w-2xl border border-white/20">
+                    <p className="text-xl text-white leading-relaxed drop-shadow-lg">
+                      {currentSlideData.description}
+                    </p>
+                  </div>
 
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                  <Button
-                    size="lg"
-                    className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 text-lg border-2 border-white/20"
-                    onClick={() =>
-                      document
-                        .getElementById("games-catalog")
-                        ?.scrollIntoView({ behavior: "smooth" })
-                    }
-                  >
-                    <Zap className="w-5 h-5 mr-2" />
-                    {currentSlideData.cta}
-                  </Button>
+                  {/* CTA Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <Button
+                      size="lg"
+                      className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 text-lg border-2 border-white/20"
+                      onClick={() =>
+                        document
+                          .getElementById("games-catalog")
+                          ?.scrollIntoView({ behavior: "smooth" })
+                      }
+                    >
+                      <Zap className="w-5 h-5 mr-2" />
+                      {currentSlideData.cta}
+                    </Button>
 
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-2 border-white bg-white/10 text-white hover:bg-white/25 hover:border-white font-semibold px-8 py-4 rounded-xl backdrop-blur-md text-lg shadow-lg transition-all duration-300"
-                  >
-                    <Star className="w-5 h-5 mr-2" />
-                    Lihat Promo
-                  </Button>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="border-2 border-white bg-white/10 text-white hover:bg-white/25 hover:border-white font-semibold px-8 py-4 rounded-xl backdrop-blur-md text-lg shadow-lg transition-all duration-300"
+                    >
+                      <Star className="w-5 h-5 mr-2" />
+                      Lihat Promo
+                    </Button>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </AnimatePresence>
 
       {/* Navigation Arrows */}
       <button
@@ -188,7 +192,11 @@ export default function HeroCarousel() {
         {heroSlides.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentSlide(index)}
+            onClick={() => {
+              if (index > currentSlide) setDirection(1);
+              else if (index < currentSlide) setDirection(-1);
+              setCurrentSlide(index);
+            }}
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
@@ -202,9 +210,9 @@ export default function HeroCarousel() {
 
       {/* Features Preview at Bottom */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
-        <div className="bg-gradient-to-t from-white/95 to-transparent backdrop-blur-sm py-8">
+        <div className="bg-gradient-to-t from-white to-transparent pt-12 pb-4">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
               {[
                 { icon: Zap, title: "Proses Cepat", desc: "Instan" },
                 { icon: Star, title: "Harga Terbaik", desc: "Termurah" },
@@ -228,6 +236,9 @@ export default function HeroCarousel() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="absolute inset-0 z-30 pointer-events-none">
+        <SnowEffect />
       </div>
     </section>
   );
