@@ -111,7 +111,7 @@ export default function HeroCarousel() {
           <div className="absolute inset-0 bg-black/30" />
 
           {/* Content Overlay - Now inside the sliding div */}
-          <div className="absolute inset-0 z-10 h-full flex items-center">
+          <div className="absolute inset-0 z-10 h-full flex items-center pb-24 sm:pb-0">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-4xl mx-auto text-center">
                 <motion.div
@@ -122,42 +122,42 @@ export default function HeroCarousel() {
                 >
                   {/* Main Title */}
                   <div className="space-y-2">
-                    <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white drop-shadow-2xl">
+                    <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white drop-shadow-2xl">
                       {currentSlideData.title}
                     </h1>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent drop-shadow-lg">
+                    <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent drop-shadow-lg">
                       {currentSlideData.subtitle}
                     </h2>
                   </div>
 
                   {/* Description */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mx-auto max-w-2xl border border-white/20">
-                    <p className="text-xl text-white leading-relaxed drop-shadow-lg">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mx-auto max-w-2xl border border-white/20">
+                    <p className="text-base sm:text-xl text-white leading-relaxed drop-shadow-lg">
                       {currentSlideData.description}
                     </p>
                   </div>
 
                   {/* CTA Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-4">
                     <Button
                       size="lg"
-                      className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 text-lg border-2 border-white/20"
+                      className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-xl shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 text-base sm:text-lg border-2 border-white/20"
                       onClick={() =>
                         document
                           .getElementById("games-catalog")
                           ?.scrollIntoView({ behavior: "smooth" })
                       }
                     >
-                      <Zap className="w-5 h-5 mr-2" />
+                      <Zap className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                       {currentSlideData.cta}
                     </Button>
 
                     <Button
                       variant="outline"
                       size="lg"
-                      className="border-2 border-white bg-white/10 text-white hover:bg-white/25 hover:border-white font-semibold px-8 py-4 rounded-xl backdrop-blur-md text-lg shadow-lg transition-all duration-300"
+                      className="border-2 border-white bg-white/10 text-white hover:bg-white/25 hover:border-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-xl backdrop-blur-md text-base sm:text-lg shadow-lg transition-all duration-300"
                     >
-                      <Star className="w-5 h-5 mr-2" />
+                      <Star className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                       Lihat Promo
                     </Button>
                   </div>
@@ -209,7 +209,7 @@ export default function HeroCarousel() {
       </div>
 
       {/* Features Preview at Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
+      <div className="absolute bottom-0 left-0 right-0 z-10 mt-8">
         <div className="bg-gradient-to-t from-white to-transparent pt-12 pb-4">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
