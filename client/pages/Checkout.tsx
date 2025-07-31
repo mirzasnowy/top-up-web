@@ -34,7 +34,12 @@ const Checkout: React.FC = () => {
 
     if (isMobile) {
       // For mobile, redirect to deeplink
-      window.location.href = simulatedMidtransResponse.deeplink_url;
+      // In a real application, this would use the actual deeplink from Midtrans
+      // to open the e-wallet application. For this simulation, we'll redirect
+      // to a success page to avoid navigation errors with placeholder URLs.
+      console.log(`Simulating deeplink for ${selectedEWallet}: ${simulatedMidtransResponse.deeplink_url}`);
+      // Redirect to a simulated transaction status page
+      window.location.href = '/transaction-status?status=success&method=' + selectedEWallet;
     } else {
       // For desktop, display QR code in modal
       setQrCodeData({
