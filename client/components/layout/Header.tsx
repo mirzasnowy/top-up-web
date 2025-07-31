@@ -48,14 +48,27 @@ export default function Header() {
           {/* Kiri: Logo dan Brand */}
           <div className="flex-1 flex justify-start">
             <Link to="/" className="flex items-center space-x-2 group">
-              <img src="/logo.png" alt="Snowy Store Logo" className="h-12 w-auto" />
+              <img src="/logo.png" alt="Snowy Store Logo" className="h-10 w-auto sm:h-12" />
               <div className="flex flex-col">
-                <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                  Snowy Store
-                </span>
-                <span className="text-xs text-gray-300 hidden sm:block">
-                  Top Up Cepat, Harga Hemat
-                </span>
+                {/* Mobile: Tampilkan kedua baris text */}
+                <div className="block md:hidden">
+                  <span className="text-base font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent whitespace-nowrap block">
+                    Snowy Store
+                  </span>
+                  <span className="text-xs text-gray-300 block leading-tight whitespace-nowrap">
+                    Top Up Cepat, Harga Hemat
+                  </span>
+                </div>
+                
+                {/* Desktop: Layout asli */}
+                <div className="hidden md:block">
+                  <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent whitespace-nowrap">
+                    Snowy Store
+                  </span>
+                  <span className="text-xs text-gray-300 hidden sm:block">
+                    Top Up Cepat, Harga Hemat
+                  </span>
+                </div>
               </div>
             </Link>
           </div>

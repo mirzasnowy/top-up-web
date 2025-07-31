@@ -471,7 +471,7 @@ export default function GameTopUp() {
                     >
                       <div className="flex items-center space-x-4">
                         <img
-                          src="/ic_qris.png"
+                          src="/ic_qris_dark.jpg"
                           alt="QRIS"
                           className="w-12 h-12"
                         />
@@ -496,7 +496,7 @@ export default function GameTopUp() {
                     >
                       <div className="flex items-center space-x-4">
                         <img
-                          src="/ic_gopay.png"
+                          src="/ic_gopay_dark.webp"
                           alt="GoPay"
                           className="w-12 h-12"
                         />
