@@ -471,7 +471,7 @@ export default function GameTopUp() {
                     >
                       <div className="flex items-center space-x-4">
                         <img
-                          src="https://midtrans.com/assets/img/payment-methods/qris.svg"
+                          src="/ic_qris.png"
                           alt="QRIS"
                           className="w-12 h-12"
                         />
@@ -496,7 +496,7 @@ export default function GameTopUp() {
                     >
                       <div className="flex items-center space-x-4">
                         <img
-                          src="https://midtrans.com/assets/img/payment-methods/gopay.svg"
+                          src="/ic_gopay.png"
                           alt="GoPay"
                           className="w-12 h-12"
                         />
