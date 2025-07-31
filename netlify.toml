@@ -11,6 +11,6 @@
   
 [[redirects]]
   force = true
-  from = "/api/midtrans/create-transaction*"
+  from = "/api/*"
   status = 200
-  to = "/.netlify/functions/api-midtrans-create-transaction"
+  to = "/.netlify/functions/api/:splat"
