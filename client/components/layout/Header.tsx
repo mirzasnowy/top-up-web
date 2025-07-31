@@ -1,11 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Snowflake } from "lucide-react";
-import { motion } from "framer-motion";
+import { Menu, X, Sun, Moon, Laptop } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "@/hooks/use-theme";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { setTheme } = useTheme();
+
+  // Efek untuk mendeteksi scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      // Set state menjadi true jika scroll lebih dari 10px
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    // Membersihkan event listener saat komponen di-unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -19,78 +34,115 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      // Perubahan utama ada di sini:
+      // - `fixed` digunakan agar header tidak mendorong konten ke bawah.
+      // - Latar belakang diatur berdasarkan state `isScrolled`.
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+        isScrolled
+          ? "bg-purple-900/50 backdrop-blur-xl shadow-lg" // Semi-transparent purple gradient when scrolled
+          : "bg-transparent" // Fully transparent when at the top
+      }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo and Brand */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <img src="/logo.png" alt="Snowy Store Logo" className="h-12 w-auto" />
-            <div className="flex flex-col">
-              <span className="text-xl font-bold bg-gradient-to-r from-snowy-600 to-ice-500 bg-clip-text text-transparent">
-                Snowy Store
-              </span>
-              <span className="text-xs text-muted-foreground hidden sm:block">
-                Top Up Cepat, Harga Hemat
-              </span>
-            </div>
-          </Link>
+          {/* Kiri: Logo dan Brand */}
+          <div className="flex-1 flex justify-start">
+            <Link to="/" className="flex items-center space-x-2 group">
+              <img src="/logo.png" alt="Snowy Store Logo" className="h-12 w-auto" />
+              <div className="flex flex-col">
+                <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                  Snowy Store
+                </span>
+                <span className="text-xs text-gray-300 hidden sm:block">
+                  Top Up Cepat, Harga Hemat
+                </span>
+              </div>
+            </Link>
+          </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+          {/* Tengah: Navigasi Desktop */}
+          <nav className="hidden md:flex flex-1 justify-center items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className="text-sm font-medium text-foreground/60 transition-colors hover:text-foreground/80 hover:text-snowy-600 relative group"
+                className="text-sm font-medium text-white/80 transition-colors hover:text-white relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-snowy-500 transition-all group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 transition-all group-hover:w-full"></span>
               </Link>
             ))}
           </nav>
 
-          {/* Actions */}
-          <div className="flex items-center space-x-2">
-            {/* Mobile Menu Toggle */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="w-9 h-9 rounded-full md:hidden hover:bg-snowy-100"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? (
-                <X className="h-4 w-4 text-snowy-600" />
-              ) : (
-                <Menu className="h-4 w-4 text-snowy-600" />
-              )}
-            </Button>
+          {/* Kanan: Tombol Menu Mobile / Spacer / Theme Toggle */}
+          <div className="flex-1 flex justify-end items-center space-x-2">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="w-9 h-9 rounded-full hover:bg-white/10">
+                  <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                  <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                  <span className="sr-only">Toggle theme</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setTheme("light")}>
+                  <Sun className="mr-2 h-4 w-4" />
+                  <span>Light</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("dark")}>
+                  <Moon className="mr-2 h-4 w-4" />
+                  <span>Dark</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("system")}>
+                  <Laptop className="mr-2 h-4 w-4" />
+                  <span>System</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <div className="flex items-center md:hidden">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="w-9 h-9 rounded-full hover:bg-white/10"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-5 w-5 text-white" />
+                ) : (
+                  <Menu className="h-5 w-5 text-white" />
+                )}
+              </Button>
+            </div>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden border-t border-border/40 py-4"
-          >
-            <nav className="flex flex-col space-y-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-sm font-medium text-foreground/60 hover:text-snowy-600 transition-colors px-2 py-1 rounded-md hover:bg-snowy-50"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </motion.div>
-        )}
+        {/* Navigasi Mobile */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              // Saat menu mobile terbuka, berikan latar belakang yang solid agar terbaca
+              className="md:hidden overflow-hidden bg-gray-900/80 backdrop-blur-lg rounded-b-lg"
+            >
+              <nav className="flex flex-col space-y-2 pt-4 pb-2">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className="text-base font-medium text-white hover:text-purple-300 transition-colors px-3 py-2 rounded-md hover:bg-white/10"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.header>
   );

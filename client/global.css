@@ -9,51 +9,51 @@
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
-    --background: 220 100% 99%;
-    --foreground: 220 30% 15%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 30% 15%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 30% 15%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
 
     --primary: 210 100% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 240 5.9% 10%;
 
-    --secondary: 210 50% 96%;
-    --secondary-foreground: 220 30% 20%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 50% 96%;
-    --muted-foreground: 220 20% 50%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
 
-    --accent: 200 80% 95%;
-    --accent-foreground: 220 30% 20%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 210 40% 88%;
-    --input: 210 40% 92%;
-    --ring: 210 100% 55%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 5.9% 10%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 220 100% 99%;
-    --sidebar-foreground: 220 30% 25%;
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 210 100% 55%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 50% 96%;
-    --sidebar-accent-foreground: 220 30% 20%;
-    --sidebar-border: 210 40% 88%;
-    --sidebar-ring: 210 100% 55%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 240 5.9% 10%;
 
     /* Premium Snowy Store Brand Colors */
-    --snowy-50: 220 100% 98%;
-    --snowy-100: 215 100% 96%;
-    --snowy-200: 210 100% 92%;
-    --snowy-300: 210 90% 85%;
-    --snowy-400: 210 80% 75%;
+    --snowy-50: 240 10% 3.9%;
+    --snowy-100: 240 3.7% 15.9%;
+    --snowy-200: 240 3.7% 15.9%;
+    --snowy-300: 240 3.7% 15.9%;
+    --snowy-400: 240 3.7% 15.9%;
     --snowy-500: 210 100% 55%;
     --snowy-600: 210 100% 45%;
     --snowy-700: 210 100% 35%;
@@ -61,20 +61,89 @@
     --snowy-900: 210 60% 15%;
 
     /* Premium Ice Colors with Purple Gradients */
-    --ice-50: 200 100% 98%;
-    --ice-100: 195 100% 95%;
-    --ice-200: 190 80% 90%;
-    --ice-300: 185 70% 80%;
-    --ice-400: 180 60% 70%;
+    --ice-50: 240 10% 3.9%;
+    --ice-100: 240 3.7% 15.9%;
+    --ice-200: 240 3.7% 15.9%;
+    --ice-300: 240 3.7% 15.9%;
+    --ice-400: 240 3.7% 15.9%;
     --ice-500: 175 50% 60%;
 
     /* Purple gradient colors */
-    --purple-50: 260 100% 98%;
-    --purple-100: 255 100% 95%;
-    --purple-200: 250 80% 90%;
-    --purple-300: 245 70% 80%;
-    --purple-400: 240 60% 70%;
+    --purple-50: 240 10% 3.9%;
+    --purple-100: 240 3.7% 15.9%;
+    --purple-200: 240 3.7% 15.9%;
+    --purple-300: 240 3.7% 15.9%;
+    --purple-400: 240 3.7% 15.9%;
     --purple-500: 235 70% 60%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 210 100% 55%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 5.9% 10%;
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 210 100% 55%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 240 5.9% 10%;
+  }
+
+  :root.light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 210 100% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-primary: 210 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 240 5.9% 10%;
   }
 }
 
@@ -95,4 +164,40 @@ hide-scrollbar::-webkit-scrollbar {
 .hide-scrollbar {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(147, 51, 234, 0.5), 0 0 20px rgba(96, 165, 250, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.8), 0 0 40px rgba(96, 165, 250, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(147, 51, 234, 0.5), 0 0 20px rgba(96, 165, 250, 0.5);
+  }
+}
+
+.dynamic-glow {
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes button-glow-animation {
+  0% {
+    box-shadow: 0 0 5px rgba(96, 165, 250, 0.7), 0 0 10px rgba(147, 51, 234, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(96, 165, 250, 1), 0 0 25px rgba(147, 51, 234, 1);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(96, 165, 250, 0.7), 0 0 10px rgba(147, 51, 234, 0.7);
+  }
+}
+
+.button-glow-effect {
+  animation: button-glow-animation 2s infinite alternate;
+}
+
+.outline-glow-effect {
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.15) inset;
 }

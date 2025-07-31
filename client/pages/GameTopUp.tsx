@@ -308,7 +308,7 @@ export default function GameTopUp() {
 
   return (
     <Layout>
-      <div className="min-h-screen py-8">
+      <div className="min-h-screen pt-20 pb-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           {/* Header */}
           <motion.div

@@ -12,51 +12,51 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#212A3D] text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-card text-foreground py-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Brand Section */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div className="flex items-center space-x-2">
-              <img src="/logo.png" alt="Snowy Store Logo" className="h-20 w-auto" />
+              <img src="/logo.png" alt="Snowy Store Logo" className="h-16 w-auto" />
               <div>
-                <h3 className="text-lg font-bold text-white">Snowy Store</h3>
-                <p className="text-sm text-gray-300">
+                <h3 className="text-foreground text-lg font-bold">Snowy Store</h3>
+                <p className="text-muted-foreground text-sm">
                   Top Up Cepat, Harga Hemat
                 </p>
               </div>
             </div>
-            <p className="text-sm text-gray-300 max-w-sm">
+            <p className="text-muted-foreground text-sm max-w-sm">
               Platform top up game terpercaya dengan harga terbaik dan proses
               yang cepat. Nikmati pengalaman bermain game tanpa batas.
             </p>
           </div>
 
           {/* Quick Navigation */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-white">Navigasi Cepat</h4>
-            <nav className="flex flex-col space-y-3">
+          <div className="space-y-3">
+            <h4 className="font-semibold text-foreground">Navigasi Cepat</h4>
+            <nav className="flex flex-col space-y-2">
               <Link
                 to="/"
-                className="text-sm text-gray-300 hover:text-snowy-400 transition-colors font-medium"
+                className="text-muted-foreground text-sm font-medium transition-colors hover:text-primary"
               >
                 Home
               </Link>
               <Link
                 to="/how-to-topup"
-                className="text-sm text-gray-300 hover:text-snowy-400 transition-colors font-medium"
+                className="text-muted-foreground text-sm font-medium transition-colors hover:text-primary"
               >
                 Cara Top Up
               </Link>
               <Link
                 to="/transaction-status"
-                className="text-sm text-gray-300 hover:text-snowy-400 transition-colors font-medium"
+                className="text-muted-foreground text-sm font-medium transition-colors hover:text-primary"
               >
                 Status Transaksi
               </Link>
               <Link
                 to="/contact"
-                className="text-sm text-gray-300 hover:text-snowy-400 transition-colors font-medium"
+                className="text-muted-foreground text-sm font-medium transition-colors hover:text-primary"
               >
                 Kontak
               </Link>
@@ -64,24 +64,24 @@ export default function Footer() {
           </div>
 
           {/* Contact Support */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-white">Kontak Support</h4>
-            <div className="space-y-3">
+          <div className="space-y-3">
+            <h4 className="font-semibold text-foreground">Kontak Support</h4>
+            <div className="space-y-2">
               <div className="flex items-center space-x-3">
-                <Mail className="h-4 w-4 text-snowy-400" />
-                <span className="text-sm text-gray-300 font-medium">
+                <Mail className="h-4 w-4 text-primary" />
+                <span className="text-muted-foreground text-sm font-medium">
                   support@snowystore.com
                 </span>
               </div>
               <div className="flex items-center space-x-3">
                 <MessageCircle className="h-4 w-4 text-green-400" />
-                <span className="text-sm text-gray-300 font-medium">
+                <span className="text-muted-foreground text-sm font-medium">
                   +62 812-3456-7890
                 </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Send className="h-4 w-4 text-blue-400" />
-                <span className="text-sm text-gray-300 font-medium">
+                <span className="text-muted-foreground text-sm font-medium">
                   @SnowyStoreCS
                 </span>
               </div>
@@ -89,9 +89,9 @@ export default function Footer() {
           </div>
 
           {/* Social Media */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-white">Media Sosial</h4>
-            <div className="flex space-x-4">
+          <div className="space-y-3">
+            <h4 className="font-semibold text-foreground">Media Sosial</h4>
+            <div className="flex space-x-3">
               <a
                 href="https://instagram.com/snowystore"
                 target="_blank"
@@ -123,28 +123,28 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-            <p className="text-xs text-gray-400">
+            <p className="text-muted-foreground text-xs">
               Follow untuk update promo terbaru!
             </p>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-gray-700">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-gray-400">
+        <div className="mt-8 pt-4 border-t border-border">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
+            <p className="text-muted-foreground text-sm">
               © {currentYear} Snowy Store. Semua hak dilindungi.
             </p>
-            <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-4">
               <Link
                 to="/terms"
-                className="text-sm text-gray-400 hover:text-snowy-400 transition-colors"
+                className="text-muted-foreground text-sm transition-colors hover:text-primary"
               >
                 Syarat & Ketentuan
               </Link>
               <Link
                 to="/privacy"
-                className="text-sm text-gray-400 hover:text-snowy-400 transition-colors"
+                className="text-muted-foreground text-sm transition-colors hover:text-primary"
               >
                 Kebijakan Privasi
               </Link>

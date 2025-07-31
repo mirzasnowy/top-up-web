@@ -1,6 +1,5 @@
 import Header from "./Header";
 import Footer from "./Footer";
-import SnowEffect from "@/components/effects/SnowEffect";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -8,8 +7,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-premium-gradient relative">
-      <SnowEffect />
+    <div className="min-h-screen flex flex-col relative bg-background">
       <Header />
       <main className="flex-1 relative">{children}</main>
       <Footer />

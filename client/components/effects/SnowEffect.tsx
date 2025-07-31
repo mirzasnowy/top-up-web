@@ -21,9 +21,12 @@ export default function SnowEffect() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const parentElement = canvas.parentElement; // Get the parent element (HeroSection)
+    if (!parentElement) return;
+
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = parentElement.clientWidth;
+      canvas.height = parentElement.clientHeight;
     };
 
     // Initialize canvas size
@@ -33,8 +36,8 @@ export default function SnowEffect() {
     const createSnowflakes = () => {
       const flakeCount = Math.min(
         100,
-        Math.max(60, Math.floor(window.innerWidth / 15)),
-      ); // Responsive count
+        Math.max(60, Math.floor(parentElement.clientWidth / 15)),
+      ); // Responsive count based on parent width
       snowflakes.current = [];
 
       for (let i = 0; i < flakeCount; i++) {
@@ -115,7 +118,7 @@ export default function SnowEffect() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-[1]"
+      className="absolute inset-0 pointer-events-none z-[1]"
       style={{
         background: "transparent",
       }}
