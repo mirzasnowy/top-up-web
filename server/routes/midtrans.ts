@@ -77,7 +77,7 @@ router.post('/create-transaction', async (req, res) => {
           payment_type: 'gopay',
           gopay: {
             enable_callback: true,
-            callback_url: 'http://localhost:3000/status', // Example callback URL
+            callback_url: 'https://snowystoree.netlify.app/status', // Example callback URL
           }
         };
         break;
