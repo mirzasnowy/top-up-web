@@ -14,6 +14,11 @@ export default function GameTopUp() {
   const [selectedPackage, setSelectedPackage] = useState<string>("");
   const [gameUserId, setGameUserId] = useState("");
   const [serverId, setServerId] = useState("");
+  const [customerName, setCustomerName] = useState("");
+  const [customerEmail, setCustomerEmail] = useState("");
+  const [customerPhone, setCustomerPhone] = useState("");
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string>("");
+  const [paymentDetails, setPaymentDetails] = useState<any>(null); // To store payment instructions
 
   // Mock game data - in real app this would come from API
   const gameData = {
@@ -226,12 +231,18 @@ export default function GameTopUp() {
     );
   }
 
-  const handleTopUp = () => {
+  const handleTopUp = async () => {
+    console.log("handleTopUp called.");
     if (
       !selectedPackage ||
       !gameUserId ||
-      (currentGame.needsServer && !serverId)
+      (currentGame.needsServer && !serverId) ||
+      !customerName ||
+      !customerEmail ||
+      !customerPhone ||
+      !selectedPaymentMethod
     ) {
+      console.log("Validation failed: Not all fields are filled.");
       alert("Mohon lengkapi semua field yang diperlukan");
       return;
     }
@@ -239,9 +250,60 @@ export default function GameTopUp() {
     const selectedPkg = currentGame.packages.find(
       (pkg) => pkg.id === selectedPackage,
     );
-    alert(
-      `Top up berhasil diproses!\nGame: ${currentGame.name}\nPaket: ${selectedPkg?.amount}\nHarga: ${selectedPkg?.price}`,
-    );
+
+    if (!selectedPkg) {
+      console.log("Validation failed: Selected package not found.");
+      alert("Paket tidak ditemukan");
+      return;
+    }
+
+    // Parse price from 'Rp X.XXX' format to a number
+    const price = parseFloat(selectedPkg.price.replace("Rp ", "").replace(/\./g, "").replace(",", "."));
+
+    console.log("Parsed Price:", price);
+    console.log("Sending to server:", {
+      id: gameId,
+      price: price,
+      quantity: 1,
+      customer_name: customerName,
+      customer_email: customerEmail,
+      customer_phone: customerPhone,
+      payment_method: selectedPaymentMethod,
+    });
+
+    try {
+      console.log("Attempting to create Midtrans transaction...");
+      const response = await fetch("http://localhost:3000/midtrans/create-transaction", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: gameId,
+          price: price,
+          quantity: 1, // Assuming 1 quantity for now
+          customer_name: customerName,
+          customer_email: customerEmail,
+          customer_phone: customerPhone,
+          payment_method: selectedPaymentMethod,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Server responded with an error:", response.status, errorText);
+        alert("Gagal membuat transaksi Midtrans. Silakan coba lagi. (Server Error)");
+        return;
+      }
+
+      const data = await response.json();
+      console.log("Midtrans Core API response:", data);
+      setPaymentDetails(data); // Save the payment details to state
+      console.log("Payment Details State:", data);
+    } catch (error) {
+      console.error("Error during Midtrans transaction:", error);
+      alert("Terjadi kesalahan saat memproses pembayaran. Cek konsol untuk detail.");
+    }
   };
 
   return (
@@ -309,6 +371,38 @@ export default function GameTopUp() {
                       />
                     </div>
                   )}
+                  <div>
+                    <Label htmlFor="customerName">Nama Lengkap</Label>
+                    <Input
+                      id="customerName"
+                      placeholder="Masukkan Nama Lengkap"
+                      value={customerName}
+                      onChange={(e) => setCustomerName(e.target.value)}
+                      className="mt-1"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="customerEmail">Email</Label>
+                    <Input
+                      id="customerEmail"
+                      type="email"
+                      placeholder="Masukkan Email"
+                      value={customerEmail}
+                      onChange={(e) => setCustomerEmail(e.target.value)}
+                      className="mt-1"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="customerPhone">Nomor Telepon</Label>
+                    <Input
+                      id="customerPhone"
+                      type="tel"
+                      placeholder="Masukkan Nomor Telepon"
+                      value={customerPhone}
+                      onChange={(e) => setCustomerPhone(e.target.value)}
+                      className="mt-1"
+                    />
+                  </div>
                 </CardContent>
               </Card>
 
@@ -352,6 +446,68 @@ export default function GameTopUp() {
                         )}
                       </motion.div>
                     ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Payment Method */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-2">
+                    <Zap className="w-5 h-5 text-snowy-500" />
+                    <span>Metode Pembayaran</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="font-semibold">QRIS</h3>
+                    <div
+                      className={`relative p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                        selectedPaymentMethod === "qris"
+                          ? "border-snowy-500 bg-snowy-50 dark:bg-snowy-900/50"
+                          : "border-border hover:border-snowy-300"
+                      }`}
+                      onClick={() => setSelectedPaymentMethod("qris")}
+                    >
+                      <div className="flex items-center space-x-4">
+                        <img
+                          src="https://midtrans.com/assets/img/payment-methods/qris.svg"
+                          alt="QRIS"
+                          className="w-12 h-12"
+                        />
+                        <div>
+                          <p className="font-semibold">QRIS</p>
+                          <p className="text-sm text-muted-foreground">
+                            Scan QR code dengan aplikasi e-wallet Anda.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-semibold">E-Wallet</h3>
+                    <div
+                      className={`relative p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                        selectedPaymentMethod === "gopay"
+                          ? "border-snowy-500 bg-snowy-50 dark:bg-snowy-900/50"
+                          : "border-border hover:border-snowy-300"
+                      }`}
+                      onClick={() => setSelectedPaymentMethod("gopay")}
+                    >
+                      <div className="flex items-center space-x-4">
+                        <img
+                          src="https://midtrans.com/assets/img/payment-methods/gopay.svg"
+                          alt="GoPay"
+                          className="w-12 h-12"
+                        />
+                        <div>
+                          <p className="font-semibold">GoPay</p>
+                          <p className="text-sm text-muted-foreground">
+                            Bayar dengan akun GoPay Anda.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -414,7 +570,11 @@ export default function GameTopUp() {
                     disabled={
                       !selectedPackage ||
                       !gameUserId ||
-                      (currentGame.needsServer && !serverId)
+                      (currentGame.needsServer && !serverId) ||
+                      !customerName ||
+                      !customerEmail ||
+                      !customerPhone ||
+                      !selectedPaymentMethod
                     }
                   >
                     <Zap className="w-4 h-4 mr-2" />
@@ -440,6 +600,66 @@ export default function GameTopUp() {
               </Card>
             </motion.div>
           </div>
+
+          {paymentDetails && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="mt-8"
+            >
+              <Card>
+                <CardHeader>
+                  <CardTitle>Instruksi Pembayaran</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {paymentDetails.payment_type === 'qris' && paymentDetails.actions && (
+                    <div className="text-center">
+                      <p className="text-lg font-semibold mb-2">Scan QRIS untuk Pembayaran</p>
+                      {paymentDetails.actions.map((action: any) => (
+                        action.name === 'generate-qr-code' && (
+                          <img src={action.url} alt="QR Code" className="mx-auto w-48 h-48" />
+                        )
+                      ))}
+                      <p className="text-sm text-muted-foreground mt-2">Buka aplikasi e-wallet Anda dan scan QR Code di atas.</p>
+                    </div>
+                  )}
+                  {paymentDetails.payment_type === 'gopay' && paymentDetails.actions && (
+                    <div className="text-center">
+                      <p className="text-lg font-semibold mb-2">Selesaikan Pembayaran dengan GoPay</p>
+                      {paymentDetails.actions.find((action: any) => action.name === 'deeplink-redirect') ? (
+                        <Button asChild className="w-full max-w-xs mx-auto bg-blue-600 hover:bg-blue-700 text-white">
+                          <a href={paymentDetails.actions.find((action: any) => action.name === 'deeplink-redirect').url} target="_blank" rel="noopener noreferrer">
+                            Buka Aplikasi Gojek
+                          </a>
+                        </Button>
+                      ) : (
+                        <p>Instruksi pembayaran GoPay tidak tersedia.</p>
+                      )}
+                      <p className="text-sm text-muted-foreground mt-2">Klik tombol di atas untuk membuka aplikasi Gojek dan menyelesaikan pembayaran.</p>
+                    </div>
+                  )}
+                  {paymentDetails.payment_type === 'bank_transfer' && paymentDetails.va_numbers && (
+                    <div>
+                      <p className="text-lg font-semibold mb-2">Transfer Bank Virtual Account</p>
+                      {paymentDetails.va_numbers.map((va: any) => (
+                        <div key={va.bank} className="flex justify-between items-center py-2 border-b last:border-b-0">
+                          <span className="font-medium">{va.bank.toUpperCase()}</span>
+                          <span className="font-bold text-lg text-snowy-600">{va.va_number}</span>
+                        </div>
+                      ))}
+                      <p className="text-sm text-muted-foreground mt-2">Lakukan transfer ke Virtual Account di atas. Pastikan jumlah sesuai.</p>
+                    </div>
+                  )}
+                  {/* Add more payment type instructions as needed */}
+                  <div className="mt-4 text-center">
+                    <p className="text-sm text-muted-foreground">Order ID: <span className="font-semibold">{paymentDetails.transaction_id}</span></p>
+                    <p className="text-sm text-muted-foreground">Total Pembayaran: <span className="font-semibold">Rp {paymentDetails.gross_amount ? paymentDetails.gross_amount.toLocaleString('id-ID') : 'N/A'}</span></p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          )}
         </div>
       </div>
     </Layout>

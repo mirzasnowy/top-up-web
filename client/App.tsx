@@ -1,5 +1,7 @@
 import "./global.css";
 
+import "./global.css";
+
 import { Toaster } from "@/components/ui/toaster";
 import { createRoot } from "react-dom/client";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -14,6 +16,8 @@ import TransactionStatus from "./pages/TransactionStatus";
 import Contact from "./pages/Contact";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import NotFound from "./pages/NotFound";
+import Checkout from "./pages/Checkout";
+import { useEffect } from "react";
 import {
   MessageCircle,
   ClipboardCheck,
@@ -72,6 +76,7 @@ function App() {
               }
             />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

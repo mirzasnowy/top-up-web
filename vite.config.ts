@@ -13,6 +13,9 @@ export default defineConfig(({ mode }) => ({
       deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "server/**"],
     },
   },
+  define: {
+    "process.env.VITE_MIDTRANS_CLIENT_KEY": JSON.stringify(process.env.VITE_MIDTRANS_CLIENT_KEY),
+  },
   build: {
     outDir: "dist/spa",
   },

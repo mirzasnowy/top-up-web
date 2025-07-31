@@ -1,0 +1,50 @@
+contoh request 
+
+curl -X POST \
+  https://api.sandbox.midtrans.com/v2/charge \
+  -H 'Accept: application/json'\
+  -H 'Authorization: Basic <YOUR SERVER KEY ENCODED in Base64>' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "payment_type": "gopay",
+    "transaction_details": {
+        "order_id": "order-101",
+        "gross_amount": 44000
+    }
+}'
+
+contoh response :
+{
+  "status_code": "201",
+  "status_message": "GO-PAY transaction is created",
+  "transaction_id": "231c79c5-e39e-4993-86da-cadcaee56c1d",
+  "order_id": "order-101h-1570513296",
+  "gross_amount": "44000.00",
+  "currency": "IDR",
+  "payment_type": "gopay",
+  "transaction_time": "2019-10-08 12:41:36",
+  "transaction_status": "pending",
+  "fraud_status": "accept",
+  "actions": [
+      {
+        "name": "generate-qr-code",
+        "method": "GET",
+        "url": "https://api.sandbox.veritrans.co.id/v2/gopay/231c79c5-e39e-4993-86da-cadcaee56c1d/qr-code"
+      },
+      {
+        "name": "deeplink-redirect",
+        "method": "GET",
+        "url": "https://simulator.sandbox.midtrans.com/gopay/ui/checkout?referenceid=Y0xwjoQ9uy&callback_url=someapps%3A%2F%2Fcallback%3Forder_id%3Dorder-101h-1570513296"
+      },
+      {
+        "name": "get-status",
+        "method": "GET",
+        "url": "https://api.sandbox.veritrans.co.id/v2/231c79c5-e39e-4993-86da-cadcaee56c1d/status"
+      },
+      {
+        "name": "cancel",
+        "method": "POST",
+        "url": "https://api.sandbox.veritrans.co.id/v2/231c79c5-e39e-4993-86da-cadcaee56c1d/cancel"
+      }
+  ]
+}
