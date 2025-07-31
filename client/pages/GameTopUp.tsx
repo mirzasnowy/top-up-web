@@ -273,7 +273,7 @@ export default function GameTopUp() {
 
     try {
       console.log("Attempting to create Midtrans transaction...");
-      const response = await fetch("http://localhost:3000/midtrans/create-transaction", {
+      const response = await fetch("/api/midtrans/create-transaction", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
