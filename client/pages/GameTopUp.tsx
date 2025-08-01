@@ -300,6 +300,13 @@ export default function GameTopUp() {
       console.log("Midtrans Core API response:", data);
       setPaymentDetails(data); // Save the payment details to state
       console.log("Payment Details State:", data);
+
+      setTimeout(() => {
+      const paymentSection = document.querySelector('[data-payment-details]');
+      if (paymentSection) {
+        paymentSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
     } catch (error) {
       console.error("Error during Midtrans transaction:", error);
       alert("Terjadi kesalahan saat memproses pembayaran. Cek konsol untuk detail.");

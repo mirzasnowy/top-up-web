@@ -3,14 +3,13 @@
   functions = "netlify/functions"
   publish = "dist/spa"
 
-
 [functions]
-  external_node_modules = ["axios"]
+  external_node_modules = ["axios", "express", "cors", "dotenv"]
   node_bundler = "esbuild"
-  
-  
+
+# Redirect API calls to Netlify function
 [[redirects]]
-  force = true
   from = "/api/*"
-  status = 200
   to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
