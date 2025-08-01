@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
-import SnowEffect from "@/components/effects/SnowEffect";
 import FloatingGameElements from "@/components/effects/FloatingGameElements";
 
 // Floating Emoji Component
@@ -25,6 +24,11 @@ const FloatingEmoji = ({
       scale: [0, 1, 1.05, 1],
       rotateY: [0, 10, -10, 0],
       rotateX: [0, 5, -5, 0],
+      filter: [
+        "brightness(1) drop-shadow(0 0 2px rgba(255, 255, 255, 0.5))",
+        "brightness(1.2) drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))",
+        "brightness(1) drop-shadow(0 0 2px rgba(255, 255, 255, 0.5))",
+      ],
     }}
     transition={{
       duration,
@@ -43,8 +47,6 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-purple-900 to-black text-white overflow-hidden dynamic-glow">
-      {/* Snow Effect */}
-
       {/* Floating Game Elements */}
       <FloatingGameElements />
 
@@ -54,7 +56,7 @@ export default function HeroSection() {
       {isMobile ? (
         // ================= MOBILE & TABLET LAYOUT (Vertikal: Gambar atas, Teks bawah) =================
         <div className="container mx-auto px-4 sm:px-6 relative z-20 flex flex-col items-center justify-center text-center">
-          {/* Maskot + Emoji - Di atas */}
+          {/* Maskot + Aura + Emoji - Di atas */}
           <motion.div 
             className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center mb-6 sm:mb-8"
             animate={{ y: [0, -15, 0] }}
@@ -66,14 +68,26 @@ export default function HeroSection() {
               delay: 1,
             }}
           >
-            <FloatingEmoji emoji="🪙" className="-top-2 sm:-top-4 left-4 sm:left-6" duration={1.8} />
+            {/* Aura GIF Effect */}
+            <motion.img
+              src="/dark-aura.gif"
+              alt="Mascot Aura"
+              className="absolute inset-0 w-full h-full object-cover scale-150 blur-sm opacity-70 z-0 pointer-events-none"
+              initial={{ opacity: 0, scale: 1.2 }}
+              animate={{ opacity: 0.7, scale: 1.5 }}
+              transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
+            />
+            
+            <FloatingEmoji emoji="✨" className="-top-2 sm:-top-4 left-4 sm:left-6" duration={1.8} />
             <FloatingEmoji emoji="🛒" className="top-8 sm:top-12 right-0 sm:right-2" duration={2.2} delay={0.3} />
             <FloatingEmoji emoji="👑" className="bottom-12 sm:bottom-16 -left-4 sm:-left-6" duration={2.0} delay={0.6} />
             <FloatingEmoji emoji="💎" className="bottom-0 sm:bottom-2 -right-2 sm:right-0" duration={1.7} delay={0.9} />
+            
+            {/* Mascot Image */}
             <motion.img
               src="/maskot.png"
               alt="Snowy Store Mascot"
-              className="h-full w-full object-contain z-10 pointer-events-none"
+              className="relative h-full w-full object-contain z-10 pointer-events-none"
               initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
@@ -141,12 +155,12 @@ export default function HeroSection() {
         // ================= DESKTOP LAYOUT (Horizontal: Teks kiri, Gambar kanan) =================
         <>
           {/* Floating Emoji for Desktop */}
-          <FloatingEmoji emoji="🪙" className="top-24 right-64" duration={1.8} />
+          <FloatingEmoji emoji="✨" className="top-24 right-64" duration={1.8} />
           <FloatingEmoji emoji="🛒" className="top-40 right-32" duration={2.2} delay={0.3} />
           <FloatingEmoji emoji="👑" className="bottom-48 right-72" duration={2.0} delay={0.6} />
           <FloatingEmoji emoji="💎" className="bottom-24 right-40" duration={1.7} delay={0.9} />
 
-          {/* Maskot */}
+          {/* Mascot + Aura */}
           <motion.div
             className="absolute right-0 bottom-0 h-3/4 lg:h-full z-10 pointer-events-none"
             animate={{ y: [0, -15, 0] }}
@@ -158,14 +172,26 @@ export default function HeroSection() {
               delay: 1,
             }}
           >
-            <motion.img
-              src="/maskot.png"
-              alt="Snowy Store Mascot"
-              className="h-full w-full object-contain"
-              initial={{ x: "100%", opacity: 0 }}
-              animate={{ x: "0%", opacity: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            />
+            <div className="relative w-full h-full">
+              {/* Aura GIF Effect */}
+              <motion.img
+                src="/dark-aura.gif"
+                alt="Mascot Aura"
+                className="absolute inset-0 w-full h-full object-contain scale-125 blur-sm opacity-80 z-0"
+                initial={{ opacity: 0, scale: 1 }}
+                animate={{ opacity: 0.8, scale: 1.25 }}
+                transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
+              />
+              {/* Mascot Image */}
+              <motion.img
+                src="/maskot.png"
+                alt="Snowy Store Mascot"
+                className="relative h-full w-full object-contain z-10"
+                initial={{ x: "100%", opacity: 0 }}
+                animate={{ x: "0%", opacity: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+              />
+            </div>
           </motion.div>
 
           {/* Text */}

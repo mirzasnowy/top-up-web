@@ -1,0 +1,48 @@
+
+.orbit-container {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+  }
+  
+  .orbit-ring {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: orbit-animation 20s linear infinite;
+  }
+  
+  @keyframes orbit-animation {
+    from {
+      transform: rotateY(0deg) rotateX(70deg);
+    }
+    to {
+      transform: rotateY(360deg) rotateX(70deg);
+    }
+  }
+  
+  .orbit-emoji-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+  }
+  
+  .orbit-emoji {
+    position: absolute;
+    top: -16px; /* Half of emoji size */
+    left: -16px; /* Half of emoji size */
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    padding: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: rotateY(0deg) rotateX(-70deg); /* Counter-rotate to face camera */
+  }
+  
