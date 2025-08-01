@@ -57,42 +57,58 @@ export default function HeroSection() {
         // ================= MOBILE & TABLET LAYOUT (Vertikal: Gambar atas, Teks bawah) =================
         <div className="container mx-auto px-4 sm:px-6 relative z-20 flex flex-col items-center justify-center text-center">
           {/* Maskot + Aura + Emoji - Di atas */}
-          <motion.div 
-            className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center mb-6 sm:mb-8"
-            animate={{ y: [0, -15, 0] }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              repeatType: "mirror",
-              ease: "easeInOut",
-              delay: 1,
-            }}
-          >
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center mb-6 sm:mb-8">
             {/* Aura GIF Effect */}
             <motion.img
               src="/dark-aura.gif"
               alt="Mascot Aura"
               className="absolute inset-0 w-full h-full object-cover scale-150 blur-sm opacity-70 z-0 pointer-events-none"
               initial={{ opacity: 0, scale: 1.2 }}
-              animate={{ opacity: 0.7, scale: 1.5 }}
-              transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
+              animate={{
+                opacity: 0.7,
+                scale: 1.5,
+                y: [0, -15, 0],
+              }}
+              transition={{
+                opacity: { duration: 1.5, ease: "easeInOut", delay: 0.5 },
+                scale: { duration: 1.5, ease: "easeInOut", delay: 0.5 },
+                y: {
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  ease: "easeInOut",
+                  delay: 1,
+                },
+              }}
             />
-            
+
             <FloatingEmoji emoji="✨" className="-top-2 sm:-top-4 left-4 sm:left-6" duration={1.8} />
             <FloatingEmoji emoji="🛒" className="top-8 sm:top-12 right-0 sm:right-2" duration={2.2} delay={0.3} />
             <FloatingEmoji emoji="👑" className="bottom-12 sm:bottom-16 -left-4 sm:-left-6" duration={2.0} delay={0.6} />
             <FloatingEmoji emoji="💎" className="bottom-0 sm:bottom-2 -right-2 sm:right-0" duration={1.7} delay={0.9} />
-            
+
             {/* Mascot Image */}
             <motion.img
               src="/maskot.png"
               alt="Snowy Store Mascot"
               className="relative h-full w-full object-contain z-10 pointer-events-none"
               initial={{ y: -50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              animate={{
+                y: [0, -15, 0],
+                opacity: 1,
+              }}
+              transition={{
+                y: {
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  ease: "easeInOut",
+                  delay: 1,
+                },
+                opacity: { duration: 1, ease: "easeOut" },
+              }}
             />
-          </motion.div>
+          </div>
 
           {/* Text - Di bawah */}
           <div className="max-w-xs sm:max-w-md md:max-w-2xl space-y-3 sm:space-y-4">
