@@ -654,7 +654,7 @@ export default function GameTopUp() {
                   {/* Add more payment type instructions as needed */}
                   <div className="mt-4 text-center">
                     <p className="text-sm text-muted-foreground">Order ID: <span className="font-semibold">{paymentDetails.transaction_id}</span></p>
-                    <p className="text-sm text-muted-foreground">Total Pembayaran: <span className="font-semibold">Rp {paymentDetails.gross_amount ? paymentDetails.gross_amount.toLocaleString('id-ID') : 'N/A'}</span></p>
+                    <p className="text-sm text-muted-foreground">Total Pembayaran: <span className="font-semibold">Rp {paymentDetails.gross_amount ? new Intl.NumberFormat('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 2 }).format(paymentDetails.gross_amount) : 'N/A'}</span></p>
                   </div>
                 </CardContent>
               </Card>
