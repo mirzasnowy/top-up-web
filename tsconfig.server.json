@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json", // Mewarisi konfigurasi utama Anda
+  "compilerOptions": {
+    "outDir": "./dist",       // Menentukan folder output
+    "rootDir": "."            // Folder root proyek
+  },
+  "include": [
+    "server",                 // Hanya sertakan folder server
+    "shared",                  // dan folder shared dalam build ini
+    "server/production.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "client"                    // Abaikan folder client
+  ]
+}

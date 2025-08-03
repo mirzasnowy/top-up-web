@@ -1,9 +1,11 @@
-import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import midtransRouter from "./routes/midtrans";
+import vipResellerRoutes from "./routes/game/vipreseller";
+import dotenv from 'dotenv';
 
+dotenv.config();
 export function createServer() {
   const app = express();
 
@@ -11,6 +13,7 @@ export function createServer() {
   app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
+  app.use('/api/game/vipreseller', vipResellerRoutes);
 
   // Example API routes
   app.get("/api/ping", (_req, res) => {

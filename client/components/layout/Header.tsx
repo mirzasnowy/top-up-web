@@ -34,44 +34,50 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      // Perubahan utama ada di sini:
-      // - `fixed` digunakan agar header tidak mendorong konten ke bawah.
-      // - Latar belakang diatur berdasarkan state `isScrolled`.
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-purple-900/50 backdrop-blur-xl shadow-lg" // Semi-transparent purple gradient when scrolled
-          : "bg-transparent" // Fully transparent when at the top
+          ? "bg-purple-900/50 backdrop-blur-xl shadow-lg"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Kiri: Logo dan Brand */}
-          <div className="flex-1 flex justify-start">
-            <Link to="/" className="flex items-center space-x-2 group">
-              <img src="/logo.png" alt="Snowy Store Logo" className="h-10 w-auto sm:h-12" />
-              <div className="flex flex-col">
-                {/* Mobile: Tampilkan kedua baris text */}
-                <div className="block md:hidden">
-                  <span className="text-base font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent whitespace-nowrap block">
-                    Snowy Store
-                  </span>
-                  <span className="text-xs text-gray-300 block leading-tight whitespace-nowrap">
-                    Top Up Cepat, Harga Hemat
-                  </span>
-                </div>
-                
-                {/* Desktop: Layout asli */}
-                <div className="hidden md:block">
-                  <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent whitespace-nowrap">
-                    Snowy Store
-                  </span>
-                  <span className="text-xs text-gray-300 hidden sm:block">
-                    Top Up Cepat, Harga Hemat
-                  </span>
-                </div>
-              </div>
-            </Link>
-          </div>
+          
+          {/* ======================= PERUBAHAN UTAMA DI SINI ======================= */}
+          {/* Kiri: Logo dan Brand (DINAMIS) */}
+          {/* Kiri: Logo dan Brand + Tagline Subtil (DINAMIS) */}
+<div className="flex-1 flex justify-start">
+  <Link to="/" className="flex items-center space-x-3 group"> {/* Menambah space-x */}
+    {/* Logo selalu tampil */}
+    <img src="/logo.png" alt="Snowy Store Logo" className="h-10 w-auto sm:h-12" />
+    
+    {/* Konten yang muncul saat di-scroll */}
+    <AnimatePresence>
+  {isScrolled && (
+    <motion.div
+      className="overflow-hidden"
+      initial={{ opacity: 0, x: -15 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -15 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+    >
+      {/* Wrapper untuk layout vertikal */}
+      <div className="flex flex-col">
+        {/* Baris 1: Nama Toko */}
+        <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent whitespace-nowrap leading-tight">
+          Snowy Store
+        </span>
+        {/* Baris 2: Tagline Baru */}
+        <span className="text-xs text-gray-300 whitespace-nowrap leading-tight">
+          Top up cepat & Aman
+        </span>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+  </Link>
+</div>
+          {/* ======================= AKHIR DARI PERUBAHAN ======================= */}
 
           {/* Tengah: Navigasi Desktop */}
           <nav className="hidden md:flex flex-1 justify-center items-center space-x-6">
@@ -87,7 +93,7 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Kanan: Tombol Menu Mobile / Spacer / Theme Toggle */}
+          {/* Kanan: Tombol Menu Mobile & Theme Toggle */}
           <div className="flex-1 flex justify-end items-center space-x-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -138,7 +144,6 @@ export default function Header() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              // Saat menu mobile terbuka, berikan latar belakang yang solid agar terbaca
               className="md:hidden overflow-hidden bg-gray-900/80 backdrop-blur-lg rounded-b-lg"
             >
               <nav className="flex flex-col space-y-2 pt-4 pb-2">

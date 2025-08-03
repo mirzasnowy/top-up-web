@@ -12,23 +12,16 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-card text-foreground py-6">
+    <footer className="bg-gray-900 text-foreground py-4 sm:py-6">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Brand Section */}
           <div className="space-y-3">
             <div className="flex items-center space-x-2">
-              <img src="/logo.png" alt="Snowy Store Logo" className="h-16 w-auto" />
-              <div>
-                <h3 className="text-foreground text-lg font-bold">Snowy Store</h3>
-                <p className="text-muted-foreground text-sm">
-                  Top Up Cepat, Harga Hemat
-                </p>
-              </div>
+              <img src="/logo.png" alt="Snowy Store Logo" className="h-10 w-auto sm:h-12" />
             </div>
             <p className="text-muted-foreground text-sm max-w-sm">
-              Platform top up game terpercaya dengan harga terbaik dan proses
-              yang cepat. Nikmati pengalaman bermain game tanpa batas.
+              Top up cepat, aman, dan ramah di dompet. Langsung gas main, no drama!
             </p>
           </div>
 

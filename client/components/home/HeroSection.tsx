@@ -135,8 +135,7 @@ export default function HeroSection() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Platform top up game terpercaya dengan harga terbaik dan proses super cepat. Nikmati
-              pengalaman bermain tanpa batas!
+              Diamond ML, UC PUBG, Free Fire? Aman, legal, langsung masuk! Harga hemat, proses kilat. Gas main sekarang!
             </motion.p>
 
             <motion.div
@@ -152,7 +151,7 @@ export default function HeroSection() {
                   document.getElementById("games-catalog")?.scrollIntoView({ behavior: "smooth" })
                 }
               >
-                Top Up Sekarang
+                Beli Diamond ML
               </Button>
               <Button
                 size="default"
@@ -236,8 +235,8 @@ export default function HeroSection() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Platform top up game terpercaya dengan harga terbaik dan proses super cepat. Nikmati
-                pengalaman bermain tanpa batas!
+                Diamond ML, UC PUBG, Free Fire? Aman, legal, langsung masuk!
+Harga hemat, proses kilat. Gas main sekarang!
               </motion.p>
 
               <motion.div
@@ -253,7 +252,7 @@ export default function HeroSection() {
                     document.getElementById("games-catalog")?.scrollIntoView({ behavior: "smooth" })
                   }
                 >
-                  Top Up Sekarang
+                  Beli Diamond ML 
                 </Button>
                 <Button
                   size="lg"
@@ -263,7 +262,7 @@ export default function HeroSection() {
                     document.getElementById("games-catalog")?.scrollIntoView({ behavior: "smooth" })
                   }
                 >
-                  Lihat Game Lainnya
+                  Lihat Daftar Game 
                 </Button>
               </motion.div>
             </div>
