@@ -27,6 +27,7 @@ export default function Header() {
     { href: "/how-to-topup", label: "Cara Top Up" },
     { href: "/transaction-status", label: "Status Transaksi" },
     { href: "/contact", label: "Kontak" },
+    { href: "/login", label: "Login" },
   ];
 
   return (

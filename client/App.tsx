@@ -15,6 +15,8 @@ import Contact from "./pages/Contact";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import NotFound from "./pages/NotFound";
 import Checkout from "./pages/Checkout";
+import LoginPage from "./pages/Login";
+import AdminDashboard from "./pages/AdminDashboard";
 import { useEffect } from "react";
 import {
   MessageCircle,
@@ -77,6 +79,8 @@ function App() {
               />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/admin" element={<AdminDashboard />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
